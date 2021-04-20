@@ -30,6 +30,7 @@ public class VisionCone : MonoBehaviour
     {
         fov = fovV;
     }
+
     public void SetViewDistance(float viewDistanceV)
     {
         viewDistance = viewDistanceV;

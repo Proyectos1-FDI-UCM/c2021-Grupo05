@@ -9,20 +9,20 @@ public class EnemyAI : MonoBehaviour
     // ADJUSTABLE VARIABLES
     [SerializeField]
     [Header("FieldOfView")]
-    float fov;
+    protected float fov;
     [SerializeField]
     [Header("Distancia a la que puede ver el enemigo")]
-    float viewDistance;
+    protected float viewDistance;
 
     [SerializeField]
     [Header("Tiempo que esta el enemigo persiguiendo al jugador antes de rendinrse y volver a su patrulla")]
-    float timeFollowingPlayer; // Tiempo que esta el enemigo persiguiendo al jugador antes de rendinrse y volver a su patrulla
-    float followPlayerTimer;
+    protected float timeFollowingPlayer; // Tiempo que esta el enemigo persiguiendo al jugador antes de rendinrse y volver a su patrulla
+    protected float followPlayerTimer;
 
     [SerializeField]
     [Header("Tiempo entre balas que dispara el enemigo")]
-    float cadence; // Tiempo entre balas que dispara el enemigo
-    float cadenceTimer;
+    protected float cadence; // Tiempo entre balas que dispara el enemigo
+    protected float cadenceTimer;
 
     [SerializeField]
     [Header("Almacena todas las posiciones de patrulla")]
@@ -30,26 +30,27 @@ public class EnemyAI : MonoBehaviour
     int patrolIndex; // Define a que posicion se debe ir en este momento
 
 
-    bool followPlayer; // Valdra true cuando se detecte al jugador, y volvera a false despues de X segundos persiguiendo al jugador
-    GameObject player;
-    Rigidbody2D rb;
+    protected bool followPlayer; // Valdra true cuando se detecte al jugador, y volvera a false despues de X segundos persiguiendo al jugador
+    protected GameObject player;
+    protected Rigidbody2D rb;
 
     // PATH FINDING
     [Header("PATHFINDING")]
     public Transform target;
 
+    // Velocidades publicas para que el biologo las pueda modificar facilmente
     [SerializeField]
-    float passiveSpeed;
+    public float passiveSpeed;
     [SerializeField]
-    float followSpeed;
+    public float followSpeed;
     [SerializeField]
-    float alertedSpeed;
-    float speed;
+    public float alertedSpeed;
+    public float speed;
     [SerializeField]
     float nextWayPointDistance = 3f; // Distancia a la que se tiene que acercar el objeto para dejar de perseguirlo
 
-    Path path;
-    Seeker seeker;
+    protected Path path;
+    protected Seeker seeker;
     int currentWayPoint = 0;
     bool reachedEndOfPath = false;
 
@@ -58,24 +59,23 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     GameObject visionConePrfb;
-    VisionCone visionConeScript;
+    protected VisionCone visionConeScript;
 
     [SerializeField]
     GameObject visionConeGroup;
 
     [SerializeField]
-    Transform gfx;
+    protected Transform gfx;
+
+    protected Animator gfxAnimator;
 
     [SerializeField]
-    Animator animator;
+    protected GameObject bulletPrfb;
 
     [SerializeField]
-    GameObject bulletPrfb;
-
+    protected Transform gun;
     [SerializeField]
-    Transform gun;
-    [SerializeField]
-    Transform shootPoint;
+    protected Transform shootPoint;
 
     private void Awake()
     {
@@ -84,6 +84,7 @@ public class EnemyAI : MonoBehaviour
         speed = passiveSpeed; // Empezar a la velocidad de patrulla
         cadenceTimer = cadence;
         gun.rotation = Quaternion.identity;
+        gfxAnimator = gfx.GetComponent<Animator>();
 
         // PATHFINDING
         seeker = GetComponent<Seeker>();
@@ -99,16 +100,27 @@ public class EnemyAI : MonoBehaviour
     {
         if (gun != null) // Si el enemigo esta muerto, no moverse (Se estara viendo la animacion de muerte de enemigo)
         {
+            UpdateFollowParameters();
+
             CheckPlayer(); // Comprobar si el jugador es visible, cambia el estado si se detecta al jugador
 
             if (!followPlayer) Patrol(); // Si no 
 
-            // Actualiza los valores del Cono de vision para que este se dibuje correctamente
-            visionConeScript.SetOrigin(transform.position);
-            if (rb.velocity != Vector2.zero)
-                visionConeScript.SetDirection(rb.velocity);
+            UpdateVisionCone();
+
+            ExtraStuff();
         }
     }
+
+    protected virtual void UpdateVisionCone()
+    {
+        // Actualiza los valores del Cono de vision para que este se dibuje correctamente
+        visionConeScript.SetOrigin(transform.position);
+        if (rb.velocity != Vector2.zero)
+            visionConeScript.SetDirection(rb.velocity);
+    }
+
+    protected virtual void ExtraStuff() { }
 
     void Patrol()
     {
@@ -154,7 +166,7 @@ public class EnemyAI : MonoBehaviour
         UpdateOrientation();
     }
 
-    void UpdateOrientation()
+    protected void UpdateOrientation()
     {
         // Rotar la parte visual del enemigo
         if (rb.velocity.x >= 0.01f)
@@ -180,14 +192,14 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void UpdatePathToPlayer()
+    protected virtual void UpdatePathToPlayer() // "virtual" para que el enemigo Biologo pueda modificar este metodo y huir en vez de perseguir al jugador
     {
         // Crear el path, donde hay que aclarar desde que posicion, hacia que posicion, y la funcion que queremos que invoque al terminar de calcularla
         if (seeker.IsDone()) // Si no se esta calculando un path actualmente
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
-    void OnPathComplete(Path p) // Se llama este metodo cada vez que se termine de calcular un Path usando "seeker.StartPath", siendo "p" el Path creado
+    protected void OnPathComplete(Path p) // Se llama este metodo cada vez que se termine de calcular un Path usando "seeker.StartPath", siendo "p" el Path creado
     {
         if (!p.error) // Si en la creacion del Path no ha habido ningun error
         {
@@ -196,7 +208,50 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
+
+    protected virtual void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
+    {
+        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistance) // Si el jugador esta cerca
+        {
+            Vector3 playerDir = (player.transform.position - transform.position).normalized;
+
+            if (Vector3.Angle(rb.velocity, playerDir) < fov / 2)
+            {
+                string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
+                LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
+                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+
+                if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
+                {
+                    if (cadenceTimer <= 0)
+                    {
+                        cadenceTimer = cadence;
+                        Debug.Log("PLAYER.TAKEDAMAGE()");
+                        Shoot();
+                    }
+                    
+                    if (!followPlayer) // Si todavia no se habia descubierto
+                    {
+                        followPlayer = true;
+                        Debug.Log("PLAYER.TAKEDAMAGE()");
+                        UpdateGunRotation(); // Actualizar la rotacion de la pistola antes de disparar con ella
+                        UpdateOrientation();
+                        Shoot();
+                        CancelInvoke(); // Cancelar otros invokes (En el caso en el que ya se estuviese persiguiendo al jugador y vuelve a ser detectado (reiniciar cuenta atras))
+                        speed = followSpeed;
+                        cadenceTimer = cadence;
+                        gfxAnimator.SetTrigger("Run"); // Actualizar animacion
+                        gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Cambiar color del sprite
+                        gun.GetComponentInChildren<SpriteRenderer>().color = Color.red; // Cambiar color del sprite de la pistola
+                        InvokeRepeating("UpdatePathToPlayer", 0, 0.2f); // Actualizar el Path hacia el player cada X segundos
+                    }
+                    followPlayerTimer = timeFollowingPlayer;
+                }
+            }
+        }
+    }
+
+    void UpdateFollowParameters()
     {
         // Decrementar cadencia
         if (followPlayer) // Hacer daño al jugador cada cierto tiempo si este esta en el campo de vision
@@ -220,61 +275,20 @@ public class EnemyAI : MonoBehaviour
             followPlayer = false;
             speed = alertedSpeed;
             cadenceTimer = cadence; // Resetear cadencia
-            animator.SetTrigger("Idle");
+            gfxAnimator.SetTrigger("Idle");
             path = null; // Poner el path que se estaba siguiendo actualmente a null para que no persiga al jugador durante el "StunnedTime"
             Invoke("StunnedTime", 5); // Tiempo en el que el enemigo se queda parado sin hacer nada durante 2 segundos tras darse por vencido persiguiendo al jugador
         }
-
-        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistance) // Si el jugador esta cerca
-        {
-            Vector3 playerDir = (player.transform.position - transform.position).normalized;
-
-            if (Vector3.Angle(rb.velocity, playerDir) < fov / 2)
-            {
-
-                string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
-                LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
-
-
-                if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
-                {
-                    if (cadenceTimer <= 0)
-                    {
-                        cadenceTimer = cadence;
-                        Debug.Log("PLAYER.TAKEDAMAGE()");
-                        Shoot();
-                    }
-                    
-                    if (!followPlayer) // Si todavia no se habia descubierto
-                    {
-                        followPlayer = true;
-                        Debug.Log("PLAYER.TAKEDAMAGE()");
-                        UpdateGunRotation(); // Actualizar la rotacion de la pistola antes de disparar con ella
-                        UpdateOrientation();
-                        Shoot();
-                        CancelInvoke(); // Cancelar otros invokes (En el caso en el que ya se estuviese persiguiendo al jugador y vuelve a ser detectado (reiniciar cuenta atras))
-                        speed = followSpeed;
-                        cadenceTimer = cadence;
-                        animator.SetTrigger("Run"); // Actualizar animacion
-                        gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Cambiar color del sprite
-                        gun.GetComponentInChildren<SpriteRenderer>().color = Color.red; // Cambiar color del sprite de la pistola
-                        InvokeRepeating("UpdatePathToPlayer", 0, 0.2f); // Actualizar el Path hacia el player cada X segundos
-                    }
-                    followPlayerTimer = timeFollowingPlayer;
-                }
-            }
-        }
     }
 
-    void UpdateGunRotation() // Rota la pistola para que apunte al jugador
+    protected void UpdateGunRotation() // Rota la pistola para que apunte al jugador
     {
         Vector2 diff = player.transform.position - transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg; // Calcular la rotacion para apuntar al jugador
         gun.rotation = Quaternion.Euler(0, 0, rot_z);
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         Vector2 diff = player.transform.position - transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg; // Calcular la rotacion para apuntar al jugador
@@ -283,9 +297,10 @@ public class EnemyAI : MonoBehaviour
 
         player.GetComponent<SimpleMov>().TakeDamage();
     }
+
     void StunnedTime()
     {
-        animator.SetTrigger("Walk");
+        gfxAnimator.SetTrigger("Walk");
         gun.rotation = Quaternion.identity; // Poner pistola en posicion relajada
         gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
         gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola
@@ -304,10 +319,26 @@ public class EnemyAI : MonoBehaviour
         passiveSpeed = newSpeed;
     }
 
-    public void Damage()
+    public virtual void Damage(bool byBullet) // Se pide el parametro "myBullet" para saber si el enemigo ha sido alcanzado por un ataque a meele o una bala
+    {
+        if (byBullet) DamageByBullet();
+        else DamageByMeele();
+    }
+
+    void DamageByMeele()
     {
         path = null;
-        animator.SetTrigger("EnemyDeath");
+        gfxAnimator.SetTrigger("EnemyDeath");
+        Destroy(visionConeScript.gameObject);
+        Destroy(gun.gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        Destroy(this.gameObject, 1.0f);
+    }
+
+    protected virtual void DamageByBullet()
+    {
+        path = null;
+        gfxAnimator.SetTrigger("EnemyDeath");
         Destroy(visionConeScript.gameObject);
         Destroy(gun.gameObject);
         GetComponent<Collider2D>().enabled = false;

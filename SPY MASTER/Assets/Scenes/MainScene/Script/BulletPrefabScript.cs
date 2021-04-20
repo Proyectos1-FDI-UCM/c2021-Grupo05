@@ -17,7 +17,7 @@ public class BulletPrefabScript : MonoBehaviour
         EnemyAI enemyScript = collision.GetComponent<EnemyAI>();
 
         if (enemyScript != null) // Si se ha golpeado a un enemigo
-            enemyScript.Damage();
+            enemyScript.Damage(true);
 
         Destroy(gameObject);
     }
