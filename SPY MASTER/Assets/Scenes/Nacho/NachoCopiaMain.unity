@@ -1667,6 +1667,7 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
@@ -2428,6 +2429,7 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
@@ -2915,6 +2917,7 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
@@ -2924,6 +2927,8 @@ MonoBehaviour:
     type: 3}
   gun: {fileID: 1900946295}
   shootPoint: {fileID: 559301326}
+  buffRange: 11
+  enemiesInRange: []
 --- !u!114 &1062166245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4071,7 +4076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  blinkDistance: 3
+  blinkDistance: 4
   maxBlinkCharge: 3
   blinkChargeSpeed: 0.7
   blinkBarSlider: {fileID: 1512755412}
@@ -4505,6 +4510,7 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 500
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
@@ -7922,13 +7928,13 @@ GameObject:
   - component: {fileID: 1994725014}
   - component: {fileID: 1994725013}
   - component: {fileID: 1994725012}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: DetectRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1994725011
 Transform:
   m_ObjectHideFlags: 0
