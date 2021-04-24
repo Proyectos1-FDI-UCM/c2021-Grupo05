@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 262651158}
   m_Layer: 8
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 300115204}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1410,12 +1410,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 107321465}
-  animator: {fileID: 107321466}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 1996493951}
@@ -2060,12 +2060,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 972375500}
-  animator: {fileID: 972375501}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 393526638}
@@ -3775,12 +3775,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 2061857528}
-  animator: {fileID: 2061857529}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 130926956}
@@ -12985,12 +12985,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 209327773}
-  animator: {fileID: 209327774}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 904783188}
@@ -13377,12 +13377,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 621181434}
-  animator: {fileID: 621181435}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 1664588744}
@@ -13608,12 +13608,12 @@ MonoBehaviour:
   passiveSpeed: 100
   followSpeed: 300
   alertedSpeed: 200
+  speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 614480146}
   gfx: {fileID: 32341438}
-  animator: {fileID: 32341439}
   bulletPrfb: {fileID: 1823386563574781123, guid: 52a91e3ed019fdb4a85ec472418b3c96,
     type: 3}
   gun: {fileID: 34884042}
