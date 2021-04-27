@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     {
         return instance;
     }
+
+    //Asignador del uimanager
+    public void SetUiManager(UIManager uim)
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
