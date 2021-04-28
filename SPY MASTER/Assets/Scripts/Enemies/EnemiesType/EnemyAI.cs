@@ -84,7 +84,9 @@ public class EnemyAI : MonoBehaviour
         speed = passiveSpeed; // Empezar a la velocidad de patrulla
         cadenceTimer = cadence;
         gun.rotation = Quaternion.identity;
-        gfxAnimator = gfx.GetComponent<Animator>();
+        gfxAnimator = FindObjectOfType<Animator>();
+        gfxAnimator.SetTrigger("Walk");
+
 
         // PATHFINDING
         seeker = GetComponent<Seeker>();
@@ -112,6 +114,8 @@ public class EnemyAI : MonoBehaviour
             UpdateVisionCone();
 
             ExtraStuff();
+
+            //gfxAnimator.SetFloat("Speed", rb.velocity.magnitude);
         }
     }
 
