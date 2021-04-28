@@ -27,13 +27,15 @@ public class CameraRotation : MonoBehaviour
     [SerializeField]
     public float rotationVelocity = 25f;
 
-
-
     bool volviendo = false;
+
+    CameraDetector cameraDetector;
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraDetector = GetComponent<CameraDetector>();
+
         float menorRotacion;
 
         if (rotationRangeA < 0)
@@ -102,7 +104,19 @@ public class CameraRotation : MonoBehaviour
             transform.Rotate(0f, 0f, -rotationVelocity * Time.deltaTime);
 
         if (!isRotating && !rotacionAgujas && rotacionContraAgujas)
-            transform.Rotate(0f, 0f, rotationVelocity * Time.deltaTime);
+            transform.Rotate(0f, 0f, rotationVelocity * Time.deltaTime);    
 
+
+        if (cameraDetector.followPlayer)transform.rotation = Quaternion.Euler(0, 0, GetAngleFromVector(cameraDetector.player.transform.position - transform.position));
+    }
+
+    float GetAngleFromVector(Vector2 dir)
+    {
+        dir = dir.normalized;
+
+        float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if (n < 0) n += 360;
+
+        return n;
     }
 }

@@ -4,10 +4,38 @@ using UnityEngine;
 
 public class Blinded_Enemy : EnemyAI
 {
+    [SerializeField]
+    Transform rangeCircle;
+
+    private void Start() 
+    {
+        // Actualizar circulo visible al jugador del rango
+        UpdateCircleRange();
+    }
+
+    public override void ChangeStats(float newDistance, float newFov, float newSpeed)
+    {
+        fovVar = newFov;
+        viewDistanceVar = newDistance;
+        speed = newSpeed;
+        // Actualiza los valores del cono
+        visionConeScript.SetFov(fovVar);
+        visionConeScript.SetViewDistance(viewDistanceVar);
+
+        UpdateCircleRange();
+    }
+
+
+    void UpdateCircleRange()
+    {
+        Debug.Log("viewDistanceVar = " + viewDistanceVar);
+
+        rangeCircle.localScale = new Vector3(viewDistanceVar * 2, viewDistanceVar * 2, 0);
+    }
 
     protected override void CheckPlayer()
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistance) // Si el jugador esta cerca
+        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
         {
             if (cadenceTimer <= 0)
             {
@@ -42,7 +70,7 @@ public class Blinded_Enemy : EnemyAI
         // Hacer uso de un RayCast para que no dispare atraves de las paredes tambien (aparte de detectar al jugador)
         string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
         LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistanceVar, collideWithThisMasks); // Lanzar un raycast hacia el jugador
 
         if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
         {

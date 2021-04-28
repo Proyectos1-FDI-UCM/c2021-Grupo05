@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5179830509444403473}
-  - component: {fileID: 5179830509444403478}
   - component: {fileID: 5179830509444403479}
   - component: {fileID: 5179830509444403476}
-  - component: {fileID: 5179830509444403472}
+  - component: {fileID: 5179830509444403478}
   m_Layer: 0
   m_Name: SpyCamera
   m_TagString: Untagged
@@ -34,6 +33,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5179830509444403479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179830509444403477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611b17f419cdd2840af68e0e78abb192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fov: 60
+  viewDistance: 5
+  player: {fileID: 0}
+  visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
+    type: 3}
+  visionConeGroup: {fileID: 0}
+--- !u!114 &5179830509444403476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179830509444403477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0360e481db1fb947a56bb769bc947c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRotating: 1
+  rotacionAgujas: 0
+  rotacionContraAgujas: 0
+  rotationRangeA: 45
+  rotationRangeB: 15
+  rotationVelocity: 90
 --- !u!212 &5179830509444403478
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84,54 +119,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5179830509444403479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179830509444403477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611b17f419cdd2840af68e0e78abb192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fov: 60
-  viewDistance: 5
-  player: {fileID: 0}
-  visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
-    type: 3}
-  visionConeGroup: {fileID: 0}
---- !u!114 &5179830509444403476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179830509444403477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0360e481db1fb947a56bb769bc947c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRotating: 1
-  rotacionAgujas: 0
-  rotacionContraAgujas: 0
-  rotationRangeA: 45
-  rotationRangeB: 15
-  rotationVelocity: 90
---- !u!114 &5179830509444403472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5179830509444403477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc2aae8e9bf6bc4f8298393d753ab6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 1024

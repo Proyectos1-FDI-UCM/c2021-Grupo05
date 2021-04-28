@@ -2627,6 +2627,7 @@ MonoBehaviour:
     type: 3}
   gun: {fileID: 2067814749}
   shootPoint: {fileID: 110869902}
+  rangeCircle: {fileID: 895970202}
 --- !u!114 &943556560
 MonoBehaviour:
   m_ObjectHideFlags: 0
