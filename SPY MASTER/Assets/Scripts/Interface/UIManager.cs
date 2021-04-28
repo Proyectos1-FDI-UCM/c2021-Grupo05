@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,9 +11,13 @@ public class UIManager : MonoBehaviour
         //GameManager.GetInstance
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CambiaEscena(string scene)
     {
-        
+        SceneManager.LoadScene(scene);
     }
+    public void PausaNivel(int valor)
+    {
+        Time.timeScale = valor;
+    }
+ 
 }

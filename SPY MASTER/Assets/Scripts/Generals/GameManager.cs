@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    //Método para abandonar la partida
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
