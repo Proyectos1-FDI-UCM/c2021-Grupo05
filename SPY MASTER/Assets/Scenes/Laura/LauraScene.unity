@@ -1253,6 +1253,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919331818}
   m_CullTransparentMesh: 0
+--- !u!114 &1082094498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3948233936095397539, guid: ff0b835f327ed9246b762dbaf80c7c23,
+    type: 3}
+  m_PrefabInstance: {fileID: 4356138438702987697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5315f7bc4f7e8b439dcf019df6bfb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090368048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,13 +2438,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977765298372005335, guid: ff0b835f327ed9246b762dbaf80c7c23,
-          type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 1082094498}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
