@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
     }
-
+    public void PausaNivel(int valor)
+    {
+        Time.timeScale = valor;
+    }
  
 }

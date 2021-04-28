@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 270575871}
   - component: {fileID: 270575870}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Imagenes controles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 571139589}
   - component: {fileID: 571139588}
   m_Layer: 5
-  m_Name: Text
+  m_Name: "Texto Men\xFA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 608103468}
   - component: {fileID: 608103467}
   m_Layer: 5
-  m_Name: Text
+  m_Name: controles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 1090368051}
   - component: {fileID: 1090368050}
   m_Layer: 5
-  m_Name: Button
+  m_Name: "Volver al men\xFA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1662,7 +1662,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainScene
+          m_StringArgument: EscenaPruebas
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1520593479

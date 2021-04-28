@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene/MainScene.unity
     guid: fb31308269d6fb24f8b6fbaf17185985
+  - enabled: 1
+    path: Assets/Scenes/Laura/EscenaPruebas.unity
+    guid: 36672b9b7d2e93440b96f69b9894c12d
   m_configObjects: {}
