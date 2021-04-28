@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,9 +11,9 @@ public class UIManager : MonoBehaviour
         //GameManager.GetInstance
     }
 
-    public void CambiaEscena()
+    public void CambiaEscena(string scene)
     {
-
+        SceneManager.LoadScene(scene);
     }
 
  
