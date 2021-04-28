@@ -9,10 +9,12 @@ public class EnemyAI : MonoBehaviour
     // ADJUSTABLE VARIABLES
     [SerializeField]
     [Header("FieldOfView")]
-    protected float fov;
+    public float fov;
+    protected float fovVar;
     [SerializeField]
     [Header("Distancia a la que puede ver el enemigo")]
-    protected float viewDistance;
+    public float viewDistance;
+    protected float viewDistanceVar;
 
     [SerializeField]
     [Header("Tiempo que esta el enemigo persiguiendo al jugador antes de rendinrse y volver a su patrulla")]
@@ -64,16 +66,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     GameObject visionConeGroup;
 
-    [SerializeField]
-    protected Transform gfx;
+    public Transform gfx;
 
     protected Animator gfxAnimator;
 
     [SerializeField]
     protected GameObject bulletPrfb;
 
-    [SerializeField]
-    protected Transform gun;
+    public Transform gun;
     [SerializeField]
     protected Transform shootPoint;
 
@@ -84,16 +84,21 @@ public class EnemyAI : MonoBehaviour
         speed = passiveSpeed; // Empezar a la velocidad de patrulla
         cadenceTimer = cadence;
         gun.rotation = Quaternion.identity;
-        gfxAnimator = gfx.GetComponent<Animator>();
+        gfxAnimator = FindObjectOfType<Animator>();
+        gfxAnimator.SetTrigger("Walk");
+
 
         // PATHFINDING
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
+        fovVar = fov;
+        viewDistanceVar = viewDistance;
+
         // CONO VISION
         visionConeScript = Instantiate(visionConePrfb, visionConeGroup.transform).GetComponent<VisionCone>();
-        visionConeScript.SetFov(fov);
-        visionConeScript.SetViewDistance(viewDistance);
+        visionConeScript.SetFov(fovVar);
+        visionConeScript.SetViewDistance(viewDistanceVar);
     }
 
     private void Update()
@@ -109,6 +114,8 @@ public class EnemyAI : MonoBehaviour
             UpdateVisionCone();
 
             ExtraStuff();
+
+            //gfxAnimator.SetFloat("Speed", rb.velocity.magnitude);
         }
     }
 
@@ -211,15 +218,15 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistance) // Si el jugador esta cerca
+        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
         {
             Vector3 playerDir = (player.transform.position - transform.position).normalized;
 
-            if (Vector3.Angle(rb.velocity, playerDir) < fov / 2)
+            if (Vector3.Angle(rb.velocity, playerDir) < fovVar / 2)
             {
                 string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
                 LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistanceVar, collideWithThisMasks); // Lanzar un raycast hacia el jugador
 
                 if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
                 {
@@ -316,11 +323,14 @@ public class EnemyAI : MonoBehaviour
         return followPlayer;
     }
 
-    public void ChangeStats(float visionRange, float visionAngle, float newSpeed)
+    public virtual void ChangeStats(float newDistance, float newFov, float newSpeed)
     {
-        fov = visionAngle;
-        viewDistance = visionRange;
-        passiveSpeed = newSpeed;
+        fovVar = newFov;
+        viewDistanceVar = newDistance;
+        speed = newSpeed;
+        // Actualiza los valores del cono
+        visionConeScript.SetFov(fovVar);
+        visionConeScript.SetViewDistance(viewDistanceVar);
     }
 
     public virtual void Damage(bool byBullet) // Se pide el parametro "myBullet" para saber si el enemigo ha sido alcanzado por un ataque a meele o una bala
@@ -347,5 +357,11 @@ public class EnemyAI : MonoBehaviour
         Destroy(gun.gameObject);
         GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject, 1.0f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        LayerMask wallLayer = LayerMask.NameToLayer("Wall");
+        if (collision.gameObject.layer == wallLayer) rb.velocity = Vector2.zero;
     }
 }

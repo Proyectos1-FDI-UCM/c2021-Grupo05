@@ -126,10 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3497dda526f9134f85f33b8f6bc30ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  visionConeReduceDistance: 0
-  visionConeReduceAngle: 0
-  velocityReduce: 0
+  allEnemies: []
+  durationInSec: 10
+  visionConeReduceDistance: 2
+  visionConeReduceAngle: 2
+  velocityReduce: 80
   darkMask: {fileID: 7849888868253849919}
 --- !u!1 &7849888868253849919
 GameObject:

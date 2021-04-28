@@ -12,8 +12,7 @@ public class CameraDetector : MonoBehaviour
     [Header("Distancia a la que puede ver el enemigo")]
     float viewDistance;
 
-    [SerializeField]
-    GameObject player;
+    public GameObject player;
 
     [SerializeField]
     GameObject visionConePrfb;
@@ -22,6 +21,7 @@ public class CameraDetector : MonoBehaviour
     [SerializeField]
     GameObject visionConeGroup;
 
+    public bool followPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -55,16 +55,42 @@ public class CameraDetector : MonoBehaviour
 
             if (Vector3.Angle(AngleToVector(transform.localRotation.eulerAngles.z), playerDir) < fov / 2)
             {
-
                 string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
                 LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
                 RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
 
-
                 if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
                 {
-                    Debug.Log("detected");
+                    if (!enemiesAlerted) MakeEnemiesAlerted();
+
+                    followPlayer = true;
+                    CancelInvoke();
+                    Invoke("StopFollowPlayer", 2);
                 }
+            }
+        }
+    }
+
+    void StopFollowPlayer()
+    {
+        followPlayer = false;
+    }
+
+    bool enemiesAlerted;
+    int alertRange = 100;
+    void MakeEnemiesAlerted()
+    {
+        EnemyAI[] allEnemies = FindObjectsOfType<EnemyAI>();
+
+        for (int i = 0; i < allEnemies.Length; i++)
+        {
+            EnemyAI thisEnemy = allEnemies[i];
+            if (Vector2.Distance(transform.position, thisEnemy.transform.position) < alertRange)
+            {
+                thisEnemy.speed = thisEnemy.alertedSpeed;
+
+                thisEnemy.gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
+                thisEnemy.gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola
             }
         }
     }

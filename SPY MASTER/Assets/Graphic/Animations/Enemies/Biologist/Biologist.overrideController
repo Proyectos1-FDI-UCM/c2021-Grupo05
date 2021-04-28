@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Biologist
+  m_Controller: {fileID: 9100000, guid: ceb9dc0724df36543869cca519b760e2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 40f0125f58d8e024e9289de51b594694, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 000b6ed7d814bd6498dca57d87d492c2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 824d55cc233424c4eb6b8dbbc4112d74, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a4c9503e3e8b94b488991fa983df5e54, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 48346fc1162006749ba838eca88c692f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 49ee37e2ef1a02941b1e286da4b59a0c, type: 2}

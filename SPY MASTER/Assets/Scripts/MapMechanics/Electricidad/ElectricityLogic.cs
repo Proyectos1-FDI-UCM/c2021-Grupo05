@@ -5,7 +5,10 @@ using UnityEngine;
 public class ElectricityLogic : MonoBehaviour
 {
     [SerializeField]
-    List<EnemyAI> enemies;
+    EnemyAI[] allEnemies;
+
+    [SerializeField]
+    float durationInSec;
 
     [SerializeField]
     float visionConeReduceDistance;
@@ -19,6 +22,11 @@ public class ElectricityLogic : MonoBehaviour
     [SerializeField]
     GameObject darkMask;
 
+    private void Awake()
+    {
+        allEnemies = FindObjectsOfType<EnemyAI>();
+    }
+
     public void OffElectricty()
     {
         ReduceEnemyPower();
@@ -26,8 +34,18 @@ public class ElectricityLogic : MonoBehaviour
     }
     void ReduceEnemyPower()
     {
-        foreach (EnemyAI enemy in enemies)
-            enemy.ChangeStats(visionConeReduceDistance, visionConeReduceAngle, velocityReduce);
+        for (int i = 0; i < allEnemies.Length; i++)
+            if (allEnemies[i] != null)
+                allEnemies[i].ChangeStats(visionConeReduceDistance, visionConeReduceAngle, velocityReduce);
+
+        Invoke("RestoreEnemyPower", durationInSec);
+    }
+
+    void RestoreEnemyPower()
+    {
+        for (int i = 0; i < allEnemies.Length; i++)
+            if (allEnemies[i] != null)
+                allEnemies[i].ChangeStats(allEnemies[i].viewDistance, allEnemies[i].fov, allEnemies[i].passiveSpeed);
     }
 
     void MaskActivate()
