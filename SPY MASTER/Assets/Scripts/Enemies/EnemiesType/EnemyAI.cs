@@ -190,7 +190,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         // Rotar pistola
-        if (followPlayer)
+        if (followPlayer && gun != null)
         {
             if (transform.position.x < player.transform.position.x) // Cambiar sprite de la pistola dependiendo de la posicion del jugador
                 gun.localScale = new Vector3(1, Mathf.Abs(gun.localScale.y), 1); // Sprite de la pistola
