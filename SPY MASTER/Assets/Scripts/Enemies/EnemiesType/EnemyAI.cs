@@ -218,41 +218,44 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
+        if (player != null)
         {
-            Vector3 playerDir = (player.transform.position - transform.position).normalized;
-
-            if (Vector3.Angle(rb.velocity, playerDir) < fovVar / 2)
+            if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
             {
-                string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
-                LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistanceVar, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+                Vector3 playerDir = (player.transform.position - transform.position).normalized;
 
-                if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
+                if (Vector3.Angle(rb.velocity, playerDir) < fovVar / 2)
                 {
-                    if (cadenceTimer <= 0)
+                    string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
+                    LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
+                    RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistanceVar, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+
+                    if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
                     {
-                        cadenceTimer = cadence;
-                        Debug.Log("PLAYER.TAKEDAMAGE()");
-                        Shoot();
+                        if (cadenceTimer <= 0)
+                        {
+                            cadenceTimer = cadence;
+                            Debug.Log("PLAYER.TAKEDAMAGE()");
+                            Shoot();
+                        }
+
+                        if (!followPlayer) // Si todavia no se habia descubierto
+                        {
+                            followPlayer = true;
+                            Debug.Log("PLAYER.TAKEDAMAGE()");
+                            UpdateGunRotation(); // Actualizar la rotacion de la pistola antes de disparar con ella
+                            UpdateOrientation();
+                            Shoot();
+                            CancelInvoke(); // Cancelar otros invokes (En el caso en el que ya se estuviese persiguiendo al jugador y vuelve a ser detectado (reiniciar cuenta atras))
+                            speed = followSpeed;
+                            cadenceTimer = cadence;
+                            gfxAnimator.SetTrigger("Run"); // Actualizar animacion
+                            gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Cambiar color del sprite
+                            gun.GetComponentInChildren<SpriteRenderer>().color = Color.red; // Cambiar color del sprite de la pistola
+                            InvokeRepeating("UpdatePathToPlayer", 0, 0.2f); // Actualizar el Path hacia el player cada X segundos
+                        }
+                        followPlayerTimer = timeFollowingPlayer;
                     }
-                    
-                    if (!followPlayer) // Si todavia no se habia descubierto
-                    {
-                        followPlayer = true;
-                        Debug.Log("PLAYER.TAKEDAMAGE()");
-                        UpdateGunRotation(); // Actualizar la rotacion de la pistola antes de disparar con ella
-                        UpdateOrientation();
-                        Shoot();
-                        CancelInvoke(); // Cancelar otros invokes (En el caso en el que ya se estuviese persiguiendo al jugador y vuelve a ser detectado (reiniciar cuenta atras))
-                        speed = followSpeed;
-                        cadenceTimer = cadence;
-                        gfxAnimator.SetTrigger("Run"); // Actualizar animacion
-                        gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.red; // Cambiar color del sprite
-                        gun.GetComponentInChildren<SpriteRenderer>().color = Color.red; // Cambiar color del sprite de la pistola
-                        InvokeRepeating("UpdatePathToPlayer", 0, 0.2f); // Actualizar el Path hacia el player cada X segundos
-                    }
-                    followPlayerTimer = timeFollowingPlayer;
                 }
             }
         }

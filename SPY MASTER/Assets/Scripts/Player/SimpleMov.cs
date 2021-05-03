@@ -153,8 +153,11 @@ public class SimpleMov : MonoBehaviour
         healthHud.HudLess(1);
         if (health == 0)
         {
+            
             Time.timeScale = 0;
+            GameManager.GetInstance().GameOver();
             Destroy(gameObject);
+       
         }
     }
 }

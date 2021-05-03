@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     //Variable que almacena la instancia del GameManager
     private static GameManager instance;
+
+    private UIManager UIManager;
     /*Al activar el objeto asociado, evita que haya dos controladores del GameManager*/
     private void Awake()
     {
@@ -32,7 +34,11 @@ public class GameManager : MonoBehaviour
     //Asignador del uimanager
     public void SetUiManager(UIManager uim)
     {
-
+        UIManager = uim;
+    }
+    public void GameOver()
+    {
+        UIManager.CambiaEscena("GameOver");
     }
     //Método para abandonar la partida
     public void Exit()
