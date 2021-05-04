@@ -59,6 +59,7 @@ public class Detector : MonoBehaviour
 
     public Transform GetNearestEnemy()
     {
+
         float minDistance = Mathf.Infinity;
         float distanceBetween;
         Transform enemToReturn = null;
@@ -71,6 +72,8 @@ public class Detector : MonoBehaviour
                 enemToReturn = enem;
             }
         }
+
+        Debug.Log("enemToReturn = " + enemToReturn);
         return enemToReturn;
     }
 }

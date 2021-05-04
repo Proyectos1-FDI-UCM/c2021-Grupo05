@@ -47,9 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fov: 60
   viewDistance: 5
+  viewDistanceVar: 0
   player: {fileID: 0}
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
+  visionConeScript: {fileID: 0}
   visionConeGroup: {fileID: 0}
   followPlayer: 0
 --- !u!114 &5179830509444403476
@@ -139,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -3114773332787321564, guid: e47f4bfaeed630a43807c976ecf7fb15,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

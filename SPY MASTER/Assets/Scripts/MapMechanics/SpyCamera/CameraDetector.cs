@@ -8,15 +8,15 @@ public class CameraDetector : MonoBehaviour
     [Header("FieldOfView")]
     float fov;
 
-    [SerializeField]
     [Header("Distancia a la que puede ver el enemigo")]
-    float viewDistance;
+    public float viewDistance;
+    public float viewDistanceVar;
 
     public GameObject player;
 
     [SerializeField]
     GameObject visionConePrfb;
-    VisionCone visionConeScript;
+    public VisionCone visionConeScript;
 
     [SerializeField]
     GameObject visionConeGroup;
@@ -26,9 +26,11 @@ public class CameraDetector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        viewDistanceVar = viewDistance;
+
         visionConeScript = Instantiate(visionConePrfb, visionConeGroup.transform).GetComponent<VisionCone>();
         visionConeScript.SetFov(fov);
-        visionConeScript.SetViewDistance(viewDistance);
+        visionConeScript.SetViewDistance(viewDistanceVar);
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class CameraDetector : MonoBehaviour
 
     void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
     {
-        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistance) // Si el jugador esta cerca
+        if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
         {
             Vector3 playerDir = (player.transform.position - transform.position).normalized;
 
@@ -57,7 +59,7 @@ public class CameraDetector : MonoBehaviour
             {
                 string[] collideWithThisLayers = new string[2] { "Player", "Wall" };
                 LayerMask collideWithThisMasks = LayerMask.GetMask(collideWithThisLayers);
-                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistance, collideWithThisMasks); // Lanzar un raycast hacia el jugador
+                RaycastHit2D ray = Physics2D.Raycast(transform.position, playerDir, viewDistanceVar, collideWithThisMasks); // Lanzar un raycast hacia el jugador
 
                 if (ray.collider.gameObject.layer == 8) // Si el ray cast alcanza al jugador
                 {

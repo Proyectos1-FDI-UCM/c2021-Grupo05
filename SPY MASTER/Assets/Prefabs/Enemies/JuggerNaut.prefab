@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7666136502119387646}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.28, y: -0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 7666136502267905372}
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 7666136502267905373}
   m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -29.46, y: -5.84, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 7666136502119387633}
   - {fileID: 7666136502968778444}
@@ -192,9 +192,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   target: {fileID: 0}
-  passiveSpeed: 100
-  followSpeed: 500
-  alertedSpeed: 200
+  passiveSpeed: 75
+  followSpeed: 400
+  alertedSpeed: 350
   speed: 0
   nextWayPointDistance: 1.5
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
@@ -425,7 +425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7666136503404714114}
   m_LocalRotation: {x: 0.5720614, y: 0.5720614, z: 0.415627, w: 0.415627}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.49, y: -0, z: 0.17}
   m_LocalScale: {x: 1.2999996, y: 1.2999997, z: 1.2999995}
   m_Children: []
   m_Father: {fileID: 7666136502267905372}

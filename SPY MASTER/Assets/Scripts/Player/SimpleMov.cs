@@ -117,6 +117,7 @@ public class SimpleMov : MonoBehaviour
             Transform enemyInRange = enemDetector.GetNearestEnemy();
             if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
             {
+                Debug.Log("EnemyDetected");
                 enemyInRange.GetComponent<EnemyAI>().Damage(false);
             }
             //detection
