@@ -28,7 +28,7 @@ public class SimpleMov : MonoBehaviour
     [SerializeField]
     private Detector enemDetector;
     private Transform aimPoint;
-    private Animator playerAnim;
+    private Animator gfxAnim;
     private Transform playerSpr;
 
     [SerializeField]
@@ -49,7 +49,7 @@ public class SimpleMov : MonoBehaviour
         //References (LIMPIAR)
         playerSpr = transform.GetChild(0).transform;
         aimPoint = HandPivot.GetChild(0).GetChild(0).GetChild(0).transform;
-        playerAnim = GetComponent<Animator>();
+        gfxAnim = GetComponentInChildren<Animator>();
 
         // Health
         health = maxHealth;
@@ -113,7 +113,7 @@ public class SimpleMov : MonoBehaviour
         //Click Derecho // MEELE
         if (Input.GetMouseButtonDown(1))
         {
-            playerAnim.Play("MeleeAttackAnim");
+            /////////////////////////////////////////////////////////////////////////////gfxAnim.Play("MeleeAttackAnim");
             Transform enemyInRange = enemDetector.GetNearestEnemy();
             if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
             {
@@ -131,6 +131,8 @@ public class SimpleMov : MonoBehaviour
             bulletHud.currentCount = 3;
             bulletHud.UploadHud();
         }
+
+        gfxAnim.SetFloat("Velocity", body.velocity.magnitude);
     }
 
     void FixedUpdate()
@@ -153,7 +155,6 @@ public class SimpleMov : MonoBehaviour
         healthHud.HudLess(1);
         if (health == 0)
         {
-            
             Time.timeScale = 0;
             GameManager.GetInstance().GameOver();
             Destroy(gameObject);
