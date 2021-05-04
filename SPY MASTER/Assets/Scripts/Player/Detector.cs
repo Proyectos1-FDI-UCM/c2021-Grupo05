@@ -5,27 +5,29 @@ using UnityEngine;
 public class Detector : MonoBehaviour
 {
     ///<summary>
-    ///Selecciona al enemigo mas proximo al jugador dentro del radio de deteccion.
+    ///Selecciona al enemigo mas proximo al jugador dentro del radio de deteccion(con Tag = "Enemy").
     ///Asigna a ese enemigo el canvas de asesinato (Canvas_Melee) para que el jugador sepa a quien puede matar(VISUAL)
-    ///Calculo/operaciones se llevan a cabo en otra clase
     ///Conversion radio/unidades => radio Canvas = 40x40 == 75u~
     ///</summary>
 
-    //references
+    //Canvas Melee
     [SerializeField]
     Transform meleeCanvas;
 
+    //Lista de posibles enemigos en rango
     private List<Transform> enemInRange = new List<Transform>(0);
     private CanvasGroup canvasAlpha;
 
     private void Start() 
     {
-        canvasAlpha = meleeCanvas.GetComponent<CanvasGroup>();    
+        canvasAlpha = meleeCanvas.GetComponent<CanvasGroup>();   
+        meleeCanvas.parent = null; 
     }
 
     private void OnTriggerEnter2D(Collider2D col) //usar if(col is Soldier) en un Futuro?
     {
-        if (col.GetComponent(typeof(EnemyAI)) as EnemyAI != null)
+        //if (col.GetComponent(typeof(EnemyAI)) as EnemyAI != null)
+        if(col.transform.CompareTag("Enemy"))
         {
             enemInRange.Add(col.transform);
         }
@@ -33,7 +35,8 @@ public class Detector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D col) //Anadir extra condicion si se puede desabilitar detector
     {
-        if (col.GetComponent(typeof(EnemyAI)) as EnemyAI != null)
+        //if (col.GetComponent(typeof(EnemyAI)) as EnemyAI != null)
+        if(col.transform.CompareTag("Enemy"))
         {
             enemInRange.Remove(col.transform);
         }
@@ -41,14 +44,9 @@ public class Detector : MonoBehaviour
 
     private void Update() 
     {
-        //Esto no tiene puto sentido. Cambiarlo y hacerlo con Delegates o algo mañana
-        //canvasState = enemInRange.Count > 0? true : false;
-        //meleeCanvas.SetActive(canvasState);
-
         canvasAlpha.alpha = enemInRange.Count > 0? 1 : 0;   
         if(enemInRange.Count > 0)     
         {
-            //PROVISIONAL. Cuando se implemente patrulla
             meleeCanvas.SetParent(GetNearestEnemy(), false);
         }
         //Al morir los enemigos desactivan collider y esperan un lapso de animacion de muerte.
@@ -61,7 +59,6 @@ public class Detector : MonoBehaviour
 
     public Transform GetNearestEnemy()
     {
-        //if(enemInRange.Count < 1) return;
         float minDistance = Mathf.Infinity;
         float distanceBetween;
         Transform enemToReturn = null;
