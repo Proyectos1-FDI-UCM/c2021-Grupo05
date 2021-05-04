@@ -7,11 +7,10 @@ public class LaserDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {        
-        PlayerManager player = collision.gameObject.GetComponent<PlayerManager>();
+        SimpleMov player = collision.gameObject.GetComponent<SimpleMov>();
         if(player != null)
         {
-            player.Damage(damage);
-            Debug.Log("Player_IsDamage");
+            player.TakeDamage();           
         }
     }
 }

@@ -46,6 +46,7 @@ public class ElectricityLogic : MonoBehaviour
         for (int i = 0; i < allEnemies.Length; i++)
             if (allEnemies[i] != null)
                 allEnemies[i].ChangeStats(allEnemies[i].viewDistance, allEnemies[i].fov, allEnemies[i].passiveSpeed);
+        darkMask.SetActive(false);
     }
 
     void MaskActivate()
