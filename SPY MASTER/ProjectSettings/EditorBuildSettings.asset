@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nacho/MergeScene.unity
     guid: cfe64de471945f349b70d8d572f26c43
+  - enabled: 1
+    path: Assets/Scenes/Laura/GameOver.unity
+    guid: 7206e2f7fca4226419cc5044f627be45
   m_configObjects: {}
