@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+//Raúl Saavedra de la Riera
 public class LifeController : MonoBehaviour
 {
     [SerializeField]
