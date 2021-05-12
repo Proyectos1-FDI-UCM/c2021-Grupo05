@@ -1,4 +1,5 @@
-﻿namespace SpyMaster
+﻿//Jacobo
+namespace SpyMaster
 {
   ///<sumary>
     ///Declaracion generica de interfaces para enemigos(asignar tipo de valor en la declaracion de clase)
