@@ -72,6 +72,7 @@ public class BlinkScript : MonoBehaviour
         {
             transform.position = newPosition;
             blinkCharge -= 1;
+            FindObjectOfType<AudioManager>().Play("Blink");
         }
         else if (SpriteDebug != null) SpriteDebug.transform.position = newPosition;
     }
