@@ -17,6 +17,7 @@ public class PickUpCol : MonoBehaviour
         Debug.Log("ColBeProduced");
 
         Debug.Log(collision.gameObject.tag);
+
         if (collision.gameObject.tag == "Player")
         {
            
