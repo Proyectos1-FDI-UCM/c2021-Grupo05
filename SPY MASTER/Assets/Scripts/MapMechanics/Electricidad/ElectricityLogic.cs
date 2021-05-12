@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //Raúl Saavedra de la Riera
+//Ignacio del Castisllo
 public class ElectricityLogic : MonoBehaviour
 {
     [SerializeField]
