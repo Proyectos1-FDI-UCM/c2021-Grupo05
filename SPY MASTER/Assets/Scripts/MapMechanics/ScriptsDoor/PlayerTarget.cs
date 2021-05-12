@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//Raúl Saavedra de la Riera
 public class PlayerTarget : MonoBehaviour
 {
     public bool redTarget, blueTarget, yellowTarget;
