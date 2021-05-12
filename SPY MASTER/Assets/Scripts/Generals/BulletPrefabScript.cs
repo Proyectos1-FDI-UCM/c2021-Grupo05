@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Raúl Saavedra de la Riera
 public class BulletPrefabScript : MonoBehaviour
 {
     private float bulletSpeed = 70f;
