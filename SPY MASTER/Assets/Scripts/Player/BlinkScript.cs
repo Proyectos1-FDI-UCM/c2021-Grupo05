@@ -42,7 +42,11 @@ public class BlinkScript : MonoBehaviour
 
         
         if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
             Blink();
+            FindObjectOfType<AudioManager>().Play("Blink");
+        }
+            
 
         // Incrementar Charge del blink
         if (blinkCharge + blinkChargeSpeed * Time.deltaTime <= maxBlinkCharge)
