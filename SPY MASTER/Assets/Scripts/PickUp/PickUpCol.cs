@@ -1,4 +1,5 @@
-﻿
+//Raul Saavedra
+//Isidro Lucas
 using UnityEngine;
 
 public class PickUpCol : MonoBehaviour
