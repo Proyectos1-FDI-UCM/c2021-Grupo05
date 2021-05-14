@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+//Raúl Saavedra de la Riera
 public class LaserDMov : MonoBehaviour
 {
    
@@ -44,8 +42,11 @@ public class LaserDMov : MonoBehaviour
         if (yAxis)        
             ActY();
 
+        Vector2 tmp = new Vector2(0,0);
+        if(xAxis)tmp += new Vector2(targetX - transform.position.x, 0).normalized;
+        if(yAxis) tmp += new Vector2(0, targetY - transform.position.y).normalized;
 
-        rb.velocity = new Vector2(targetX - transform.position.x, targetY - transform.position.y).normalized * speed;
+        rb.velocity = tmp * speed;
     }
 
     void IniForX()
@@ -59,13 +60,13 @@ public class LaserDMov : MonoBehaviour
     {
       
         iniPosY = transform.position.y;
-        targetX = yTarget.transform.position.y;
+        targetY = yTarget.transform.position.y;
 
     }
 
     void ActX()
     {
-        if (Mathf.Abs(transform.position.x - targetX) < 0.1f)
+        if (Mathf.Abs(targetX - transform.position.x) < 0.1f)
         {
             dirX = !dirX;
             if (dirX) targetX = xTarget.transform.position.x;
@@ -76,10 +77,10 @@ public class LaserDMov : MonoBehaviour
 
     void ActY()
     {        
-        if (Mathf.Abs(transform.position.y - targetY) < 0.1f)
+        if (Mathf.Abs(targetY - transform.position.y) < 0.1f)
         {
             dirY = !dirY;
-            if (dirX) targetY = yTarget.transform.position.y;
+            if (dirY) targetY = yTarget.transform.position.y;
             else targetY = iniPosY;
         }
             
