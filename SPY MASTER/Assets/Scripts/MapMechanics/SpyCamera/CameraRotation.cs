@@ -56,6 +56,8 @@ public class CameraRotation : MonoBehaviour
         else
             menorRotacion = rotationRangeB;
 
+        menorRotacion = rotationRangeA; /////////
+
         if (isRotating)
             transform.Rotate(0f, 0f, menorRotacion);
     }

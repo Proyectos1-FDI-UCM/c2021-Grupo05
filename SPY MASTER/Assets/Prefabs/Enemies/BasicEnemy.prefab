@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8190374182191675494}
   m_Layer: 9
   m_Name: BasicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8190374182191675492}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -6.96, y: -9.59, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
@@ -92,7 +92,7 @@ MonoBehaviour:
   followSpeed: 300
   alertedSpeed: 200
   speed: 0
-  nextWayPointDistance: 1.5
+  nextWayPointDistance: 1
   visionConePrfb: {fileID: 5745719002839940525, guid: e17a1820766365245aca4854e894af41,
     type: 3}
   visionConeGroup: {fileID: 0}
