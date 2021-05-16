@@ -147,8 +147,21 @@ public class SimpleMov : MonoBehaviour
 
     public void GetAmmo()
     {
-        numOfBullets = 3;//Mathf.Infinity;
-                         //numOfBullets = 999;//Mathf.Infinity;
+        numOfBullets = 3;
+        bulletHud.currentCount = 3;
+        bulletHud.UploadHud();
+
+    }
+    public void GetLive()
+    {
+        health++;//Mathf.Infinity;
+        healthHud.HudAdd(1);
+        //numOfBullets = 999;//Mathf.Infinity;
+    }
+
+    public bool CheckMaxLive()
+    {
+        return maxHealth > health;
     }
 
     public void TakeDamage()
