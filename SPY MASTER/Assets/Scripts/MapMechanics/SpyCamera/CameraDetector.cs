@@ -24,6 +24,9 @@ public class CameraDetector : MonoBehaviour
 
     public bool followPlayer;
 
+    bool detected = false;
+    float soundCD = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,15 @@ public class CameraDetector : MonoBehaviour
         visionConeScript.SetOrigin(transform.position);
         visionConeScript.SetDirection(AngleToVector(transform.localRotation.eulerAngles.z));
         CheckPlayer();
+
+        if (detected)
+        {
+            soundCD -= Time.deltaTime;
+            if (soundCD <= 0)
+            {
+                detected = false;
+            }
+        }
     }
 
     Vector3 AngleToVector(float angle) // Devuelve el Vector3 que corresponde al angulo con una magnitud de 1.
@@ -50,6 +62,7 @@ public class CameraDetector : MonoBehaviour
         return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad)); // Utilizar "Mathf" para saber el coseno y el seno y almacenarlo en el vector
     }
 
+    
     void CheckPlayer() // Comprueba si el jugador esta visible para este enemigo, y se encarga de perseguirlo en tal caso o de volver a la ruta prevista
     {
         if (Vector2.Distance(transform.position, player.transform.position) <= viewDistanceVar) // Si el jugador esta cerca
@@ -69,6 +82,8 @@ public class CameraDetector : MonoBehaviour
                     followPlayer = true;
                     CancelInvoke();
                     Invoke("StopFollowPlayer", 2);
+
+                    DetectedSound();
                 }
             }
         }
@@ -95,6 +110,17 @@ public class CameraDetector : MonoBehaviour
                 thisEnemy.gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
                 thisEnemy.gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola
             }
+        }
+    }
+
+
+    void DetectedSound()
+    {
+        if (!detected)
+        {
+            FindObjectOfType<AudioManager>().Play("Detected");
+            detected = true;
+            soundCD = 3f;
         }
     }
 }
