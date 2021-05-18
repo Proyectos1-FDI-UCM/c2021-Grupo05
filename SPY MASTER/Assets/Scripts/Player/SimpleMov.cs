@@ -146,7 +146,7 @@ public class SimpleMov : MonoBehaviour
         moveDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveDir.Normalize();
         body.velocity = moveDir * runSpeed;
-        FindObjectOfType<AudioManager>().Play("Walking");
+        
     }
 
     public void GetAmmo()
@@ -172,12 +172,15 @@ public class SimpleMov : MonoBehaviour
     {
         health--;
         healthHud.HudLess(1);
+        FindObjectOfType<AudioManager>().Play("Damaged");
         if (health == 0)
         {
             Time.timeScale = 0;
             GameManager.GetInstance().GameOver();
             Destroy(gameObject);
-       
+           
+            FindObjectOfType<AudioManager>().Play("Player_Death"); 
+            
         }
     }
 }
