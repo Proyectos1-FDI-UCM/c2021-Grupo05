@@ -108,6 +108,7 @@ public class SimpleMov : MonoBehaviour
             numOfBullets--;
             bulletHud.HudLess(1);
 
+            FindObjectOfType<AudioManager>().Play("Silenced_shot");
             //Se aplica aceleracion con ForceMode2D.Force, no con Impulse. No utilizamos masa, creo?
         }
 
@@ -116,10 +117,12 @@ public class SimpleMov : MonoBehaviour
         {
             /////////////////////////////////////////////////////////////////////////////gfxAnim.Play("MeleeAttackAnim");
             Transform enemyInRange = enemDetector.GetNearestEnemy();
+            
             if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
             {
                 Debug.Log("EnemyDetected");
                 enemyInRange.GetComponent<EnemyAI>().Damage(false);
+                FindObjectOfType<AudioManager>().Play("Stab");
             }
             //detection
         }
@@ -143,6 +146,7 @@ public class SimpleMov : MonoBehaviour
         moveDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveDir.Normalize();
         body.velocity = moveDir * runSpeed;
+        FindObjectOfType<AudioManager>().Play("Walking");
     }
 
     public void GetAmmo()
