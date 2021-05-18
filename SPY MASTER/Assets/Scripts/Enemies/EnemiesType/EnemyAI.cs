@@ -352,6 +352,12 @@ public class EnemyAI : MonoBehaviour
         Destroy(gun.gameObject);
         GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject, 1.0f);
+
+        int death = Random.Range(1, 4);
+        if (death == 1) { FindObjectOfType<AudioManager>().Play("Player_Death"); }
+        else if (death == 2) { FindObjectOfType<AudioManager>().Play("Enemy_Death1"); }
+        else if (death == 3) { FindObjectOfType<AudioManager>().Play("Enemy_Death2"); }
+        else if (death == 4) { FindObjectOfType<AudioManager>().Play("Enemy_Death3"); }
     }
 
     protected virtual void DamageByBullet()
@@ -362,6 +368,13 @@ public class EnemyAI : MonoBehaviour
         Destroy(gun.gameObject);
         GetComponent<Collider2D>().enabled = false;
         Destroy(this.gameObject, 1.0f);
+
+        int death = Random.Range(1, 4);
+        if (death == 1) { FindObjectOfType<AudioManager>().Play("Player_Death"); }
+        else if (death == 2) { FindObjectOfType<AudioManager>().Play("Enemy_Death1"); }
+        else if (death == 3) { FindObjectOfType<AudioManager>().Play("Enemy_Death2"); }
+        else if (death == 4) { FindObjectOfType<AudioManager>().Play("Enemy_Death3"); }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
