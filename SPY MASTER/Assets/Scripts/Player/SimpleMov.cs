@@ -168,6 +168,11 @@ public class SimpleMov : MonoBehaviour
         return maxHealth > health;
     }
 
+    public bool CheckBullets()
+    {
+        return numOfBullets != 3;
+    }
+
     public void TakeDamage()
     {
         health--;

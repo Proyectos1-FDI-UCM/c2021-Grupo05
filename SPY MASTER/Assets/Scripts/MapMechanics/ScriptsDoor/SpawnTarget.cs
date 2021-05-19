@@ -13,12 +13,12 @@ public class SpawnTarget : MonoBehaviour
     private void Start()
     {
         Instantiate<GameObject>(targetVisual, 
-            new Vector3(transform.position.x, transform.position.y + targetDistance, transform.position.x), 
+            new Vector3(transform.position.x, transform.position.y + targetDistance, 0.1f), 
             targetPref.transform.rotation, 
             this.transform);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         Instantiate<GameObject>(targetPref, transform.position, targetPref.transform.rotation);
     }

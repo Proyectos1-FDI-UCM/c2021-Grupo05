@@ -569,8 +569,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -571, y: 0}
-  m_SizeDelta: {x: -1727.0573, y: -495.8498}
+  m_AnchoredPosition: {x: -579, y: 72.20001}
+  m_SizeDelta: {x: -1727.0573, y: -468.2008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270575870
 MonoBehaviour:
@@ -668,7 +668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.471375, y: -74.13858}
+  m_AnchoredPosition: {x: 96.471375, y: -77.594696}
   m_SizeDelta: {x: 109.43149, y: 109.43149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371861771
@@ -894,8 +894,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 117.52864, y: 14.881706}
-  m_SizeDelta: {x: 1143.8815, y: 665.2549}
+  m_AnchoredPosition: {x: 117.52864, y: 72.2}
+  m_SizeDelta: {x: 1143.8815, y: 779.80115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608103467
 MonoBehaviour:
@@ -936,7 +936,9 @@ MonoBehaviour:
     Click Drch. -> Cuchillo
 
     Shift
-    -> Blink'
+    -> Blink
+
+    R -> Recargar balas'
 --- !u!222 &608103468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1168,7 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.471375, y: -227.36803}
+  m_AnchoredPosition: {x: 96.471375, y: -237.73637}
   m_SizeDelta: {x: 46.116867, y: 119.33606}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912924689
@@ -1627,7 +1629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.471375, y: -514.7274}
+  m_AnchoredPosition: {x: 96.471375, y: -538.9202}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430540301
@@ -2169,7 +2171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.471375, y: -375.8817}
+  m_AnchoredPosition: {x: 96.471375, y: -393.1623}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890657727

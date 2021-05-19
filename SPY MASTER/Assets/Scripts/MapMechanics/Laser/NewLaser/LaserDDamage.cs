@@ -34,7 +34,7 @@ public class LaserDDamage : MonoBehaviour
             lr.SetPosition(1, target.transform.position);
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, layerObj);
 
-        if (lastDamage + velocityDamage <= Time.timeSinceLevelLoad)
+        if (lastDamage + velocityDamage < Time.timeSinceLevelLoad)
         {
             if (hit != false)
             {
