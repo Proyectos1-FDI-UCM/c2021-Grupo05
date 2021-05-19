@@ -211,7 +211,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MenuPrincipal
+          m_StringArgument: MergeScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &76065208
@@ -656,7 +656,6 @@ GameObject:
   - component: {fileID: 788193240}
   - component: {fileID: 788193239}
   - component: {fileID: 788193243}
-  - component: {fileID: 788193244}
   m_Layer: 5
   m_Name: 'Menu '
   m_TagString: Untagged
@@ -761,18 +760,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90f797f4656bd546b313e11f670edf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &788193244
+  pause: {fileID: 0}
+--- !u!1 &896994542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 896994544}
+  - component: {fileID: 896994543}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &896994543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788193238}
+  m_GameObject: {fileID: 896994542}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5315f7bc4f7e8b439dcf019df6bfb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &896994544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896994542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1111.6042, y: 536.4514, z: -155.51988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030388333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1142,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 788193244}
+      - m_Target: {fileID: 0}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
