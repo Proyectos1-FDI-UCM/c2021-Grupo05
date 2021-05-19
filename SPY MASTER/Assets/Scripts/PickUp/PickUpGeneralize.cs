@@ -26,7 +26,8 @@ public class PickUpGeneralize : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision");
         SimpleMov player = collision.gameObject.GetComponentInParent<SimpleMov>();
@@ -34,23 +35,27 @@ public class PickUpGeneralize : MonoBehaviour
         {
             Debug.Log("col with player");
             if (health)
-            {           
-                if(player.CheckMaxLive())
+            {
+                if (player.CheckMaxLive())
                 {
                     player.GetLive();
                     Destroy(this.gameObject);
                 }
-                
+
             }
             if (ammo)
             {
-                player.GetAmmo();
+                if(player.CheckBullets())
+                {
+                     player.GetAmmo();
                 Destroy(this.gameObject);
+                }
+               
             }
 
-           
+
 
         }
     }
-    
+
 }

@@ -33,12 +33,14 @@ public class DoorTarget : MonoBehaviour
         }
     }
 
-    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Contacto");
-        PlayerTarget player = collision.gameObject.GetComponentInChildren<PlayerTarget>();
+        PlayerTarget player = collision.gameObject.GetComponent<PlayerTarget>();
         if (player != null)
             CheckOpen(player);
     }
+  
+   
+  
 }
