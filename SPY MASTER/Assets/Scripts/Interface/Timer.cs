@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         //Si no tiene instancia ya creada, almacena la actual
         if (instance == null)
         {
@@ -60,13 +61,13 @@ public class Timer : MonoBehaviour
         first = PlayerPrefs.GetInt("first");
         second = PlayerPrefs.GetInt("second");
         third = PlayerPrefs.GetInt("third");
-       
 
-        if(first == 0) PlayerPrefs.SetInt("first", mark);
-        else if(second == 0) PlayerPrefs.SetInt("second", mark);
-        else if(third == 0) PlayerPrefs.SetInt("third", mark);
-        else
-        {
+        Debug.Log("first" + first);
+        Debug.Log("second" + second);
+        Debug.Log("third" + third);
+
+        
+        
             if (first > mark)
             {
                 PlayerPrefs.SetInt("first", mark);
@@ -84,9 +85,15 @@ public class Timer : MonoBehaviour
             {
                 PlayerPrefs.SetInt("third", mark);
             }
-        }
-                        
+            else
+            
+            if (first == 0) PlayerPrefs.SetInt("first", mark);
+            else if (second == 0) PlayerPrefs.SetInt("second", mark);
+            else if (third == 0) PlayerPrefs.SetInt("third", mark);
     }
+       
+                        
+    
 
     //para probar guarda tiempo
 
@@ -102,5 +109,6 @@ public class Timer : MonoBehaviour
         Debug.Log(second);
         Debug.Log(third);
     }
+
 
 }
