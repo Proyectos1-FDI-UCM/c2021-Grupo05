@@ -48,3 +48,6 @@ TagManager:
   - name: UILayer
     uniqueID: 720648685
     locked: 0
+  - name: Weapons
+    uniqueID: 2219439153
+    locked: 0
