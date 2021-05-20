@@ -23,4 +23,15 @@ public class TimerPanel : MonoBehaviour
     {
         timer.actPanel(text);
     }
+
+    //para prueba de guardado
+    public void SaveTime()
+    {
+        timer.SaveTime();
+    }
+
+    public void ShowTime()
+    {
+        timer.DebugTimes();
+    }
 }

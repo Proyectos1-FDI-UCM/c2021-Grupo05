@@ -53,6 +53,7 @@ public class Timer : MonoBehaviour
     public void SaveTime()
     {
         int mark = min * 60 + seconds;
+        Debug.Log("current mark: " + mark);
 
         int first, second, third;
         
@@ -61,9 +62,9 @@ public class Timer : MonoBehaviour
         third = PlayerPrefs.GetInt("third");
        
 
-        if(first != 0) PlayerPrefs.SetInt("first", mark);
-        else if(second != 0) PlayerPrefs.SetInt("second", mark);
-        else if(third != 0) PlayerPrefs.SetInt("third", mark);
+        if(first == 0) PlayerPrefs.SetInt("first", mark);
+        else if(second == 0) PlayerPrefs.SetInt("second", mark);
+        else if(third == 0) PlayerPrefs.SetInt("third", mark);
         else
         {
             if (first > mark)
@@ -85,6 +86,21 @@ public class Timer : MonoBehaviour
             }
         }
                         
+    }
+
+    //para probar guarda tiempo
+
+    public void DebugTimes()
+    {
+        int first, second, third;
+
+        first = PlayerPrefs.GetInt("first");
+        second = PlayerPrefs.GetInt("second");
+        third = PlayerPrefs.GetInt("third");
+
+        Debug.Log(first);
+        Debug.Log(second);
+        Debug.Log(third);
     }
 
 }
