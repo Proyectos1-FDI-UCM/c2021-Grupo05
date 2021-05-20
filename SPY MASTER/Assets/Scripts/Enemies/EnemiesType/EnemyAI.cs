@@ -109,6 +109,7 @@ public class EnemyAI : MonoBehaviour
         {
             UpdateFollowParameters();
 
+            if(player != null)
             CheckPlayer(); // Comprobar si el jugador es visible, cambia el estado si se detecta al jugador
 
             if (!followPlayer) Patrol(); // Si no 
@@ -203,8 +204,9 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void UpdatePathToPlayer() // "virtual" para que el enemigo Biologo pueda modificar este metodo y huir en vez de perseguir al jugador
     {
+        
         // Crear el path, donde hay que aclarar desde que posicion, hacia que posicion, y la funcion que queremos que invoque al terminar de calcularla
-        if (seeker.IsDone()) // Si no se esta calculando un path actualmente
+        if (seeker.IsDone() && gameObject != null) // Si no se esta calculando un path actualmente
             seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 

@@ -43,6 +43,7 @@ public class CameraDetector : MonoBehaviour
 
         visionConeScript.SetOrigin(transform.position);
         visionConeScript.SetDirection(AngleToVector(transform.localRotation.eulerAngles.z));
+        if(player != null)
         CheckPlayer();
 
         if (detected)

@@ -88608,7 +88608,7 @@ MonoBehaviour:
     type: 3}
   targetVisual: {fileID: 8827912016392617039, guid: 2915e16f11e139c46b39de7eb467a25f,
     type: 3}
-  targetDistance: 1
+  targetDistance: 1.5
 --- !u!1 &1848285217
 GameObject:
   m_ObjectHideFlags: 0

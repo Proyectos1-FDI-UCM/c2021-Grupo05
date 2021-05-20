@@ -101,7 +101,7 @@ public class SimpleMov : MonoBehaviour
         HandPivot.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         //Click Izquierdo // DISPARO
-        if (Input.GetMouseButtonDown(0) && numOfBullets > 0)
+        if (Input.GetMouseButtonDown(0) && numOfBullets > 0 && Time.timeScale != 0)
         {
             Rigidbody2D bulletInstance = Instantiate(bulletPrefab, aimPoint.position, aimPoint.rotation).GetComponent<Rigidbody2D>();
             Destroy(bulletInstance, 5f);//seguro de destruccion
@@ -113,7 +113,7 @@ public class SimpleMov : MonoBehaviour
         }
 
         //Click Derecho // MEELE
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && Time.timeScale != 0)
         {
             /////////////////////////////////////////////////////////////////////////////gfxAnim.Play("MeleeAttackAnim");
             Transform enemyInRange = enemDetector.GetNearestEnemy();
