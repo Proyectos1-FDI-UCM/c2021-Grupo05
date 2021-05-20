@@ -1,14 +1,12 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField]
-    Text text;
-    float iniTime;
-    GameManager gm;
-
     private static Timer instance;
+
+    float iniTime;
+  
 
     int min, seconds;
     // Start is called before the first frame update
@@ -30,30 +28,26 @@ public class Timer : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        gm = GameManager.GetInstance();
+    
+
+    public static Timer GetInstance()
+    {         
+        return instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void changeIni(float actTime)
+    {
+        iniTime = actTime;
+    }
+
+
+   public void actPanel(Text text)
     {
         float actTime = Time.time - iniTime;
         min = (int)actTime / 60;
         seconds = (int)actTime % 60;
 
         text.text = min + " : " + seconds;
-    }
-
-    public static Timer GetInstance(float actTime)
-    {
-        return instance;
-    }
-
-
-    public void AddTime(float time)
-    {
-      iniTime =  iniTime - time;
     }
 
     public void SaveTime()
