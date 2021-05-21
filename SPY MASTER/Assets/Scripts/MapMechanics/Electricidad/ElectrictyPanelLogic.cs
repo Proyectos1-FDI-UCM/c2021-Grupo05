@@ -33,7 +33,7 @@ public class ElectrictyPanelLogic : MonoBehaviour
         {
             Debug.Log("ElectrictyDown");
             electricity.OffElectricty();
-            FindObjectOfType<AudioManager>().Play("Power_Down");
+            AudioManager.GetInstance().Play("Power_Down");
         }
     }
 }

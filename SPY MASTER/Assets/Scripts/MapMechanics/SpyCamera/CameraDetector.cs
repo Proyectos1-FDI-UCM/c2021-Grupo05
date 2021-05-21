@@ -119,7 +119,7 @@ public class CameraDetector : MonoBehaviour
     {
         if (!detected)
         {
-            FindObjectOfType<AudioManager>().Play("Detected");
+            AudioManager.GetInstance().Play("detected");
             detected = true;
             soundCD = 3f;
         }

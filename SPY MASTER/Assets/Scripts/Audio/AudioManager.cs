@@ -9,8 +9,14 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    public static AudioManager instance;
+    static AudioManager instance;
+
     
+    static public AudioManager GetInstance()
+    {  
+        return instance;
+    }
+
     void Awake()
     {
 
@@ -48,4 +54,6 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Sound " + name + " found");
         s.source.Play();
     }
+
+   
 }

@@ -45,7 +45,6 @@ public class BlinkScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Blink();
-            FindObjectOfType<AudioManager>().Play("Blink");
         }
             
 
@@ -72,7 +71,7 @@ public class BlinkScript : MonoBehaviour
         {
             transform.position = newPosition;
             blinkCharge -= 1;
-            FindObjectOfType<AudioManager>().Play("Blink");
+            AudioManager.GetInstance().Play("Blink");
         }
         else if (SpriteDebug != null) SpriteDebug.transform.position = newPosition;
     }
