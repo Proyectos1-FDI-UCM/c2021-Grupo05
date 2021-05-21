@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Laura Gómez Bodego
 public class GameManager : MonoBehaviour
 {
     //Variable que almacena la instancia del GameManager
