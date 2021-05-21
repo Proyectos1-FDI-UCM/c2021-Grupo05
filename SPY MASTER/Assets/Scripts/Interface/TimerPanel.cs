@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
-
+//Raúl Saavedra
 public class TimerPanel : MonoBehaviour
 {
     [SerializeField]

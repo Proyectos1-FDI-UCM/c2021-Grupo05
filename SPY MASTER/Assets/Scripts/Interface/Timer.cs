@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+//Raúl Saavedra
 public class Timer : MonoBehaviour
 {
     private static Timer instance;
