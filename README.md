@@ -1,14 +1,12 @@
 # Spy Master
-![Screenshot](MainChar.png)
-## Description
+
+## Descripción
 
 Este es un juego de sigilo, que se basa en esconderse de los enemigos para que no te
 detecten e ir matándolos bien con pistola o a melee. La mecánica más importante del juego
 es Blink, que permite teletransportarte hacia delante, es muy necesaria tanto para evitar y
 huir de los enemigos como para avanzar en el nivel, ya que es obligatorio atravesar ciertas
 paredes
-
-## Getting Started
 
 ### Dependencias
 
@@ -20,7 +18,7 @@ paredes
 * Ejecutar el archivo .exe dentro de la carpeta
 
 
-## Autores
+## Autores ![Screenshot](MainChar.png)
 
 Nacho del Castillo
 
