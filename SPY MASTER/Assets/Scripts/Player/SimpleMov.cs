@@ -108,7 +108,7 @@ public class SimpleMov : MonoBehaviour
             numOfBullets--;
             bulletHud.HudLess(1);
 
-            FindObjectOfType<AudioManager>().Play("Silenced_shot");
+            AudioManager.GetInstance().Play("Silenced_shot");
             //Se aplica aceleracion con ForceMode2D.Force, no con Impulse. No utilizamos masa, creo?
         }
 
@@ -122,7 +122,7 @@ public class SimpleMov : MonoBehaviour
             {
                 Debug.Log("EnemyDetected");
                 enemyInRange.GetComponent<EnemyAI>().Damage(false);
-                FindObjectOfType<AudioManager>().Play("Stab");
+                AudioManager.GetInstance().Play("Stab");
             }
             //detection
         }
@@ -177,14 +177,14 @@ public class SimpleMov : MonoBehaviour
     {
         health--;
         healthHud.HudLess(1);
-        FindObjectOfType<AudioManager>().Play("Damaged");
+        AudioManager.GetInstance().Play("Damaged");
         if (health == 0)
         {
             Time.timeScale = 0;
             GameManager.GetInstance().GameOver();
             Destroy(gameObject);
-           
-            FindObjectOfType<AudioManager>().Play("Player_Death"); 
+
+            AudioManager.GetInstance().Play("Player_Death"); 
             
         }
     }

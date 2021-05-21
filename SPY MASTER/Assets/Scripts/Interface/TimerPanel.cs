@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
-
+//Raúl Saavedra
 public class TimerPanel : MonoBehaviour
 {
     [SerializeField]
@@ -21,13 +21,15 @@ public class TimerPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer != null) 
         timer.actPanel(text);
     }
 
     //para prueba de guardado
     public void SaveTime()
     {
-        timer.SaveTime();
+        if (timer != null)
+            timer.SaveTime();
     }
 
     public void ShowTime()
