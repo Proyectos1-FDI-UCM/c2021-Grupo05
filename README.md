@@ -1,4 +1,4 @@
-# Spy Master
+# Blink Master
 ![Screenshot](LogoPreview.jpg)
 ## Descripción
 
