@@ -1,5 +1,5 @@
 # Spy Master
-
+![Screenshot](LogoPreview.jpg)
 ## Descripción
 
 Este es un juego de sigilo, que se basa en esconderse de los enemigos para que no te
