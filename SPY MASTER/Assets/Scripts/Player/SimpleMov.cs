@@ -45,6 +45,9 @@ public class SimpleMov : MonoBehaviour
     [SerializeField]
     HudCountController healthHud;
 
+    [SerializeField]
+    Transform meeleEffect;
+
     void Start()
     {
         //References (LIMPIAR)
@@ -115,7 +118,8 @@ public class SimpleMov : MonoBehaviour
         //Click Derecho // MEELE
         if (Input.GetMouseButtonDown(1) && Time.timeScale != 0)
         {
-            /////////////////////////////////////////////////////////////////////////////gfxAnim.Play("MeleeAttackAnim");
+            Destroy(Instantiate(meeleEffect, aimPoint.position, aimPoint.rotation, aimPoint.parent.parent.parent.parent.parent).gameObject, 0.5f);
+
             Transform enemyInRange = enemDetector.GetNearestEnemy();
             
             if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
@@ -170,6 +174,8 @@ public class SimpleMov : MonoBehaviour
 
     public bool CheckBullets()
     {
+        Debug.Log("numOfBullets = " + numOfBullets);
+
         return numOfBullets != 3;
     }
 

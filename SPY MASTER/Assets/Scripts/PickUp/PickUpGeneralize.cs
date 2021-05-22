@@ -30,7 +30,7 @@ public class PickUpGeneralize : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collision");
-        SimpleMov player = collision.gameObject.GetComponentInParent<SimpleMov>();
+        SimpleMov player = collision.gameObject.GetComponent<SimpleMov>();
         if (player != null)
         {
             Debug.Log("col with player");
@@ -43,12 +43,15 @@ public class PickUpGeneralize : MonoBehaviour
                 }
 
             }
+
             if (ammo)
             {
                 if(player.CheckBullets())
                 {
-                     player.GetAmmo();
-                Destroy(this.gameObject);
+                    Debug.Log("ammo");
+
+                    player.GetAmmo();
+                    Destroy(this.gameObject);
                 }
                
             }
