@@ -21,8 +21,8 @@ public class Detector : MonoBehaviour
 
     private void Start() 
     {
-        canvasAlpha = meleeCanvas.GetComponent<CanvasGroup>();   
-        meleeCanvas.parent = null; 
+        canvasAlpha = meleeCanvas.GetComponent<CanvasGroup>();
+        meleeCanvas.parent = null;
     }
 
     private void OnTriggerEnter2D(Collider2D col) //usar if(col is Soldier) en un Futuro?

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1659331731}
   - component: {fileID: 1659331732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2868175876721999326}
   - component: {fileID: 6021912109655908933}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969130286644525743}
   - component: {fileID: 6411861269087233848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 5245985562395652484}
   - component: {fileID: 1602673762156652330}
   - component: {fileID: 1723112377}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TargetDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 1719283703908287695}
   - component: {fileID: 309450413610107679}
   - component: {fileID: 1518413809}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
