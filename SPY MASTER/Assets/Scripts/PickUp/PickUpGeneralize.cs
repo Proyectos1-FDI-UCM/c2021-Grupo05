@@ -43,12 +43,15 @@ public class PickUpGeneralize : MonoBehaviour
                 }
 
             }
+
             if (ammo)
             {
                 if(player.CheckBullets())
                 {
-                     player.GetAmmo();
-                Destroy(this.gameObject);
+                    Debug.Log("ammo");
+
+                    player.GetAmmo();
+                    Destroy(this.gameObject);
                 }
                
             }

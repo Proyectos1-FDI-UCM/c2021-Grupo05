@@ -170,6 +170,8 @@ public class SimpleMov : MonoBehaviour
 
     public bool CheckBullets()
     {
+        Debug.Log("numOfBullets = " + numOfBullets);
+
         return numOfBullets != 3;
     }
 
