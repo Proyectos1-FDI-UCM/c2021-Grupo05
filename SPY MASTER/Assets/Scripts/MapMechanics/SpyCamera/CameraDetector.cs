@@ -96,7 +96,7 @@ public class CameraDetector : MonoBehaviour
     }
 
     bool enemiesAlerted;
-    int alertRange = 15;
+    int alertRange = 20;
     void MakeEnemiesAlerted()
     {
         EnemyAI[] allEnemies = FindObjectsOfType<EnemyAI>();
@@ -106,7 +106,8 @@ public class CameraDetector : MonoBehaviour
             EnemyAI thisEnemy = allEnemies[i];
             if (Vector2.Distance(transform.position, thisEnemy.transform.position) < alertRange)
             {
-                thisEnemy.speed = thisEnemy.alertedSpeed;
+                // Buff enemies
+                thisEnemy.ChangeStats(10, 90, thisEnemy.alertedSpeed);
 
                 thisEnemy.gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
                 thisEnemy.gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola

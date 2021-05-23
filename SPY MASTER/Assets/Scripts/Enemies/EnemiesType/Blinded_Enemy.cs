@@ -8,6 +8,9 @@ public class Blinded_Enemy : EnemyAI
     [SerializeField]
     Transform rangeCircle;
 
+    [SerializeField]
+    float floatgfxX;
+
     private void Start() 
     {
         // Actualizar circulo visible al jugador del rango

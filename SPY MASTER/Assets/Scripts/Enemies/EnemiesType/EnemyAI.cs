@@ -8,6 +8,10 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField]
+    float floatgfxX;
+
+
     // ADJUSTABLE VARIABLES
     [SerializeField]
     [Header("FieldOfView")]
@@ -105,6 +109,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        floatgfxX = rb.velocity.x;
+
         if (gun != null) // Si el enemigo esta muerto, no moverse (Se estara viendo la animacion de muerte de enemigo)
         {
             UpdateFollowParameters();
@@ -115,6 +121,8 @@ public class EnemyAI : MonoBehaviour
             if (!followPlayer) Patrol(); // Si no 
 
             UpdateVisionCone();
+
+            UpdateOrientation();
 
             ExtraStuff();
 
@@ -172,24 +180,22 @@ public class EnemyAI : MonoBehaviour
 
         if (distance < nextWayPointDistance)
             currentWayPoint++;
-
-        UpdateOrientation();
     }
 
     protected void UpdateOrientation()
     {
         // Rotar la parte visual del enemigo
-        if (rb.velocity.x >= 0.01f)
+        if (rb.velocity.x >= 0.1f)
         {
-            gfx.localScale = new Vector3(Mathf.Abs(gfx.localScale.x), gfx.localScale.y, 1); // Sprite del enemigo
+            transform.localScale = new Vector3(transform.localScale.x, Mathf.Abs(transform.localScale.y), 1); // Sprite del enemigo
 
-            if (!followPlayer) gun.localScale = new Vector3(Mathf.Abs(gun.localScale.x), 1, 1); // Sprite de la pistola
+            //if (!followPlayer) gun.localScale = new Vector3(Mathf.Abs(gun.localScale.x), 1, 1); // Sprite de la pistola
         }
-        else if (rb.velocity.x <= -0.01f)
+        else if (rb.velocity.x <= -0.1f)
         {
-            gfx.localScale = new Vector3(-Mathf.Abs(gfx.localScale.x), gfx.localScale.y, 1); // Sprite del enemigo
+            transform.localScale = new Vector3(transform.localScale.x, -Mathf.Abs(transform.localScale.y), 1); // Sprite del enemigo
 
-            if (!followPlayer) gun.localScale = new Vector3(-Mathf.Abs(gun.localScale.x), 1, 1); // Sprite de la pistola
+            //if (!followPlayer) gun.localScale = new Vector3(-Mathf.Abs(gun.localScale.x), 1, 1); // Sprite de la pistola
         }
 
         // Rotar pistola
