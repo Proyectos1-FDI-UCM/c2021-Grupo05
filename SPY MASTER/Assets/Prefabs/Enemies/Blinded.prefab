@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d776bff9737b904a979e96b7121f85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatgfxX: 0
   fov: 0
   viewDistance: 5
   timeFollowingPlayer: 5
@@ -516,6 +517,7 @@ MonoBehaviour:
   gun: {fileID: 7754815263474292302}
   shootPoint: {fileID: 7754815263839777437}
   rangeCircle: {fileID: 7754815264579822729}
+  floatgfxX: 0
 --- !u!58 &7754815264534055133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -531,7 +533,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.9
 --- !u!50 &7754815264534055134
 Rigidbody2D:
   serializedVersion: 4

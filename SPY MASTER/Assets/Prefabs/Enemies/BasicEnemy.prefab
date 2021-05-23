@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71be2cc71a2ecf4b81683ab6426b4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatgfxX: 0
   fov: 60
   viewDistance: 5
   timeFollowingPlayer: 5
@@ -116,7 +117,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.7
 --- !u!50 &8190374182191675495
 Rigidbody2D:
   serializedVersion: 4
@@ -465,8 +466,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2075528143
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2623037931567229917, guid: 078db9a1cd96a984ea5c683b58267737,
     type: 3}

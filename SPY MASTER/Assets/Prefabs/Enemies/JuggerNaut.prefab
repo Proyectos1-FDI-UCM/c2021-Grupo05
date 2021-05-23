@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e973a2b7e75bdc488f45a4aff1a3b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatgfxX: 0
   fov: 60
   viewDistance: 5
   timeFollowingPlayer: 5
@@ -298,9 +299,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.18, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.8
 --- !u!50 &7666136502267905374
 Rigidbody2D:
   serializedVersion: 4

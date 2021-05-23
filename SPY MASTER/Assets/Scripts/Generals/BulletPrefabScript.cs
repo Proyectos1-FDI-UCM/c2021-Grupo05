@@ -4,7 +4,7 @@ using UnityEngine;
 //Raúl Saavedra de la Riera
 public class BulletPrefabScript : MonoBehaviour
 {
-    private float bulletSpeed = 70f;
+    private float bulletSpeed = 50f;
 
     private void Start()
     {
@@ -14,11 +14,14 @@ public class BulletPrefabScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyAI enemyScript = collision.GetComponent<EnemyAI>();
+        if (collision.tag != "Obstacle")
+        {
+            EnemyAI enemyScript = collision.GetComponent<EnemyAI>();
 
-        if (enemyScript != null) // Si se ha golpeado a un enemigo
-            enemyScript.Damage(true);
+            if (enemyScript != null) // Si se ha golpeado a un enemigo
+                enemyScript.Damage(true);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

@@ -104,9 +104,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2075528143
+  m_SortingLayer: 3
+  m_SortingOrder: 100
   m_Sprite: {fileID: -1712779516296215236, guid: eede2f9c663468445be4256404509c9f,
     type: 3}
   m_Color: {r: 1, g: 0.7763596, b: 0.2688679, a: 1}
@@ -156,13 +156,13 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2075528143
+  m_SortingLayer: 3
+  m_SortingOrder: 100
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.05
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
