@@ -96,7 +96,7 @@ public class CameraDetector : MonoBehaviour
     }
 
     bool enemiesAlerted;
-    int alertRange = 10;
+    int alertRange = 15;
     void MakeEnemiesAlerted()
     {
         EnemyAI[] allEnemies = FindObjectsOfType<EnemyAI>();
