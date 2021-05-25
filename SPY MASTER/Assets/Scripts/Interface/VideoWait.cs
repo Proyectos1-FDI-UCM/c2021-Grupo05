@@ -6,12 +6,13 @@ using UnityEngine.Video;
 
 public class VideoWait : MonoBehaviour
 {
-    public VideoPlayer videoPlay;
+    VideoPlayer videoPlay;
     public int sceneToChange;
     double length = 0.0f;
 
     private IEnumerator Start()
     {
+        videoPlay = GetComponent<VideoPlayer>();
         length = videoPlay.clip.length;
         yield return new WaitForSeconds((float)length);
         SceneManager.LoadScene (sceneBuildIndex: sceneToChange);
