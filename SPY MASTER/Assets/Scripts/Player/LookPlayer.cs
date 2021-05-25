@@ -17,7 +17,7 @@ public class LookPlayer : MonoBehaviour
 
     private Transform targetToLook;
     SpriteRenderer spriteRend;
-    IEnumerator Start()
+    void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
         switch (target)
@@ -25,10 +25,10 @@ public class LookPlayer : MonoBehaviour
             case Target.Player: targetToLook = GameObject.Find("Player").transform; break;
             case Target.Other: targetToLook = GameObject.Find("Player").transform; break;
         }
-        while(true)
-        {
-            spriteRend.flipX = targetToLook.position[0] < transform.position[0] ? true : false;
-            yield return new WaitForSeconds(0.2f);
-        }
+    }
+    private void Update()
+    {
+        spriteRend.flipX = targetToLook.position[0] < transform.position[0] ? true : false;
+        yield return new WaitForSeconds(0.2f);
     }
 }
