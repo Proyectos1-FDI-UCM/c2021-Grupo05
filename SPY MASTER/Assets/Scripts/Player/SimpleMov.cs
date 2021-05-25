@@ -48,6 +48,9 @@ public class SimpleMov : MonoBehaviour
     [SerializeField]
     Transform meeleEffect;
 
+    [SerializeField]
+    ParticleSystem ShotParticles;
+
     void Start()
     {
         //References (LIMPIAR)
@@ -71,6 +74,7 @@ public class SimpleMov : MonoBehaviour
 
         //Visuals Coroutine
         StartCoroutine(CheckForMousePos());
+
     }
 
     IEnumerator CheckForMousePos()
@@ -111,8 +115,10 @@ public class SimpleMov : MonoBehaviour
             numOfBullets--;
             bulletHud.HudLess(1);
 
-            AudioManager.GetInstance().Play("Silenced_shot");
             //Se aplica aceleracion con ForceMode2D.Force, no con Impulse. No utilizamos masa, creo?
+
+            AudioManager.GetInstance().Play("Silenced_shot");
+            ShotParticles.Play();
         }
 
         //Click Derecho // MEELE

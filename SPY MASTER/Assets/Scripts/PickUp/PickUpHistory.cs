@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUpHistory : MonoBehaviour
 {
     [SerializeField]
-     GameObject panel;
+    GameObject panel;
 
     [SerializeField]
     GameObject[] infos;

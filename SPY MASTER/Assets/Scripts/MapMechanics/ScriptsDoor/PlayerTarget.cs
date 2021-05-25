@@ -17,6 +17,7 @@ public class PlayerTarget : MonoBehaviour
                 {
                     redTarget = true;
                     Destroy(collision.gameObject);
+                    AudioManager.GetInstance().Play("Card");
                 }
             }
            else if(target.blueTarget)
@@ -25,6 +26,7 @@ public class PlayerTarget : MonoBehaviour
                 {
                     blueTarget = true;
                     Destroy(collision.gameObject);
+                    AudioManager.GetInstance().Play("Card");
                 }
             }
            else
@@ -33,6 +35,7 @@ public class PlayerTarget : MonoBehaviour
                 {
                     yellowTarget = true;
                     Destroy(collision.gameObject);
+                    AudioManager.GetInstance().Play("Card");
                 }
             }
         }

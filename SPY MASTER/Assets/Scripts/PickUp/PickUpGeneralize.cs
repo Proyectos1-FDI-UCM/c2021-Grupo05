@@ -40,6 +40,7 @@ public class PickUpGeneralize : MonoBehaviour
                 {
                     player.GetLive();
                     Destroy(this.gameObject);
+                    AudioManager.GetInstance().Play("Health_pickup");
                 }
 
             }
@@ -52,6 +53,7 @@ public class PickUpGeneralize : MonoBehaviour
 
                     player.GetAmmo();
                     Destroy(this.gameObject);
+                    AudioManager.GetInstance().Play("Ammo_pickup");
                 }
                
             }

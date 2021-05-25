@@ -20,16 +20,19 @@ public class DoorTarget : MonoBehaviour
         {
             doorBlock.SetActive(false);
             player.redTarget = false;
+            AudioManager.GetInstance().Play("Door");
         }
         else if (blueDoor && player.blueTarget)
         {
             doorBlock.SetActive(false);
             player.blueTarget = false;
+            AudioManager.GetInstance().Play("Door");
         }
         else if (yellowDoor && player.yellowTarget)
         {
             doorBlock.SetActive(false);
             player.yellowTarget = false;
+            AudioManager.GetInstance().Play("Door");
         }
     }
 
