@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ABANDONAR '
+  m_Text: "Volver al men\xFA"
 --- !u!222 &122046958
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MARK 2
+  m_Text: TIEMPO 2
 --- !u!222 &363290050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MARK 1
+  m_Text: TIEMPO 1
 --- !u!222 &544035870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    the judging cat'
+    EL GATO JUEZ'
 --- !u!222 &567255470
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THE MARKS
+  m_Text: MARCAS
 --- !u!222 &571139589
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MARK 3
+  m_Text: TIEMPO 3
 --- !u!222 &1493520554
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1510,8 +1510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 749, y: -468}
-  m_SizeDelta: {x: 385.79895, y: 87.51905}
+  m_AnchoredPosition: {x: 720.9, y: -466.5}
+  m_SizeDelta: {x: 441.98328, y: 90.476906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139706553
 MonoBehaviour:
