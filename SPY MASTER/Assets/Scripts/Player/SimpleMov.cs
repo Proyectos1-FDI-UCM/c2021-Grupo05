@@ -118,6 +118,8 @@ public class SimpleMov : MonoBehaviour
             //Se aplica aceleracion con ForceMode2D.Force, no con Impulse. No utilizamos masa, creo?
 
             AudioManager.GetInstance().Play("Silenced_shot");
+
+            if(ShotParticles != null)
             ShotParticles.Play();
         }
 
