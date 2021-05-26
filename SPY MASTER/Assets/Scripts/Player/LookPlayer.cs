@@ -30,10 +30,6 @@ public class LookPlayer : MonoBehaviour
     void Update()
     {
         spriteRend.flipX = targetToLook.position[0] < transform.position[0] ? true : false;
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
     }
    
 }
