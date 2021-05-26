@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
-public class VideoWait : MonoBehaviour
+public class VideoEnd : MonoBehaviour
 {
     VideoPlayer videoPlay;
     public int sceneToChange;

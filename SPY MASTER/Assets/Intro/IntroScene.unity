@@ -517,8 +517,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2053892750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1fb59959f2895c4fa877cd57950181c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a9379d058405284f8b710396c5a95ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoPlay: {fileID: 2053892754}
   sceneToChange: 2
