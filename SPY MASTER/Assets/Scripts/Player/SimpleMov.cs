@@ -140,12 +140,12 @@ public class SimpleMov : MonoBehaviour
         //Draw Bullet Gizmo Direction
         //Debug.DrawRay(handGunSpr.position, handGunSpr.right * 50f, Color.red);
 
-        if (Input.GetKeyDown("r"))
-        {
-            GetAmmo();
-            bulletHud.currentCount = 3;
-            bulletHud.UploadHud();
-        }
+        //if (Input.GetKeyDown("r"))
+        //{
+        //    GetAmmo();
+        //    bulletHud.currentCount = 3;
+        //    bulletHud.UploadHud();
+        //}
 
         gfxAnim.SetFloat("Velocity", body.velocity.magnitude);
     }
