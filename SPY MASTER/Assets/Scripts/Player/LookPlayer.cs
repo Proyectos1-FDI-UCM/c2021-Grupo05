@@ -26,9 +26,11 @@ public class LookPlayer : MonoBehaviour
             case Target.Other: targetToLook = GameObject.Find("Player").transform; break;
         }
     }
-    private void Update()
+
+    void Update()
     {
         spriteRend.flipX = targetToLook.position[0] < transform.position[0] ? true : false;
-        yield return new WaitForSeconds(0.2f);
+        
     }
+   
 }
