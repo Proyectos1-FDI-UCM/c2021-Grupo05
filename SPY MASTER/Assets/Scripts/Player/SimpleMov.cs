@@ -116,7 +116,9 @@ public class SimpleMov : MonoBehaviour
             bulletHud.HudLess(1);
 
             AudioManager.GetInstance().Play("Silenced_shot");
-            //ShotParticles.Play();
+
+            if(ShotParticles != null)
+            ShotParticles.Play();
         }
 
         //Click Derecho // MEELE
@@ -137,12 +139,12 @@ public class SimpleMov : MonoBehaviour
         //Draw Bullet Gizmo Direction
         //Debug.DrawRay(handGunSpr.position, handGunSpr.right * 50f, Color.red);
 
-        if (Input.GetKeyDown("r"))
-        {
-            GetAmmo();
-            bulletHud.currentCount = 3;
-            bulletHud.UploadHud();
-        }
+        //if (Input.GetKeyDown("r"))
+        //{
+        //    GetAmmo();
+        //    bulletHud.currentCount = 3;
+        //    bulletHud.UploadHud();
+        //}
 
         gfxAnim.SetFloat("Velocity", body.velocity.magnitude);
     }

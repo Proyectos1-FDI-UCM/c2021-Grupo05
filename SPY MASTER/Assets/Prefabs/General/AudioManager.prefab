@@ -47,10 +47,10 @@ MonoBehaviour:
   - name: Blink
     clip: {fileID: 8300000, guid: 49206c7305d391c419b787a2d0357eb2, type: 3}
     volume: 0.517
-    pitch: 0.91
+    pitch: 2.03
     loop: 0
     source: {fileID: 0}
-  - name: Detected
+  - name: detected
     clip: {fileID: 8300000, guid: d6e249031f5d6a84b969af28482e0600, type: 3}
     volume: 0.457
     pitch: 0.56
@@ -58,12 +58,84 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Silenced_shot
     clip: {fileID: 8300000, guid: 0a615e3f06e424c489909cce388e2b64, type: 3}
-    volume: 0.512
-    pitch: 0.83
+    volume: 0.127
+    pitch: 2.1
     loop: 0
     source: {fileID: 0}
   - name: Stab
     clip: {fileID: 8300000, guid: 34dcd755c43d4fe488cc1176701354fe, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Player_Death
+    clip: {fileID: 8300000, guid: e09fb3137e99f8945a379fa9cb08fbc5, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy_Death1
+    clip: {fileID: 8300000, guid: 19432ef3dd6f07d4fa2446f0fc4924d5, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy_Death2
+    clip: {fileID: 8300000, guid: 9ce0eff8463d3e944a7d3d7636851720, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Enemy_Death3
+    clip: {fileID: 8300000, guid: bfd671b4605c44043b9b644b00a01c72, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Jugg_Impact
+    clip: {fileID: 8300000, guid: f6eebbed887a0954d9d7d68db567d6f9, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Power_Down
+    clip: {fileID: 8300000, guid: cee4c16dd93f9764e815bf53f4704f58, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: e5acc835bdf07134bb4bfb5a377f6084, type: 3}
+    volume: 0.608
+    pitch: 1.56
+    loop: 0
+    source: {fileID: 0}
+  - name: Card
+    clip: {fileID: 8300000, guid: 5705978f0c9b577458feadec80c7cd95, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Detected
+    clip: {fileID: 8300000, guid: 34dcd755c43d4fe488cc1176701354fe, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 1
+    source: {fileID: 0}
+  - name: Health_pickup
+    clip: {fileID: 8300000, guid: d05cd41f59f4fcb43afac79ec638bf47, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Ammo_pickup
+    clip: {fileID: 8300000, guid: 918eade7b4b85df4791b7c0023e0696e, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 0
+    source: {fileID: 0}
+  - name: Damaged
+    clip: {fileID: 8300000, guid: b26032f1e643d88429b8a3c30f1797b0, type: 3}
     volume: 0.608
     pitch: 1.11
     loop: 0
