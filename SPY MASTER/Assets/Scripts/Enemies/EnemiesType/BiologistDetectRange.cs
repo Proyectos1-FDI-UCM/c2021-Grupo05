@@ -31,7 +31,7 @@ public class BiologistDetectRange : MonoBehaviour
 
         for (int i = 0; i < biologistScript.enemiesInRange.Count; i++)
         {
-            Debug.Log("biologistScript.enemiesInRange [" + i + "] = " + biologistScript.enemiesInRange[i]);
+            //Debug.Log("biologistScript.enemiesInRange [" + i + "] = " + biologistScript.enemiesInRange[i]);
         }
     }
 
@@ -41,7 +41,7 @@ public class BiologistDetectRange : MonoBehaviour
 
         if (enemyScript != null) // Si ha entrado un enemigo
         {
-            Debug.Log("BUFF RANGE COLLIDED WITH " + collision.name);
+            ////Debug.Log("BUFF RANGE COLLIDED WITH " + collision.name);
 
             BuffEnemy(enemyScript);
         }
@@ -52,7 +52,7 @@ public class BiologistDetectRange : MonoBehaviour
 
         if (enemyScript != null) // Si ha entrado un enemigo
         {
-            Debug.Log("BUFF RANGE EXIT COLLIDER WITH " + collision.name);
+            //Debug.Log("BUFF RANGE EXIT COLLIDER WITH " + collision.name);
 
             NerfEnemy(enemyScript);
         }

@@ -20,33 +20,29 @@ public class BlinkScript : MonoBehaviour
     float blinkChargeSpeed;
 
     [SerializeField]
-    Slider blinkBarSlider;
+    Image blinkBarSlider;
 
     [SerializeField]
     GameObject SpriteDebug;
+
+    private Animator anim;
+
+    Collider2D col;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         blinkCharge = maxBlinkCharge;
-        blinkBarSlider.maxValue = maxBlinkCharge;
+        anim = transform.GetComponentInChildren<Animator>();
+        col = GetComponent<Collider2D>();
     }
     private void Update()
     {
         // Movimiento basico
-
-        //int xAxis = (int) Input.GetAxisRaw("Horizontal");
-        //int yAxis = (int) Input.GetAxisRaw("Vertical");
-
-        //rb.velocity = new Vector2(xAxis, yAxis) * speed;
-
-
-        
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Blink();
+            StartCoroutine(Blink());
         }
-            
 
         // Incrementar Charge del blink
         if (blinkCharge + blinkChargeSpeed * Time.deltaTime <= maxBlinkCharge)
@@ -54,10 +50,10 @@ public class BlinkScript : MonoBehaviour
         else blinkCharge = maxBlinkCharge;
 
         // Actualizar slider mostrando el charge del Blink
-        blinkBarSlider.value = blinkCharge;
+        blinkBarSlider.fillAmount = blinkCharge/3;
     }
 
-    void Blink ()
+    IEnumerator Blink()
     {
         // Calcular la posicion a la que se intenta teletransportar
         Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -69,10 +65,15 @@ public class BlinkScript : MonoBehaviour
 
         if (blinkCharge - 1 >= 0 && !Physics2D.OverlapCircle(newPosition, transform.localScale.x / 2, LayerMask.GetMask("Wall")))
         {
-            transform.position = newPosition;
+            //Tiempo e invulnerabilidad
+            col.enabled = false;
+            anim.Play("Player_Blink");
+            yield return new WaitForSeconds(0.3f);
+            rb.position = newPosition;
             blinkCharge -= 1;
             AudioManager.GetInstance().Play("Blink");
-            
+            yield return new WaitForSeconds(0.3f);
+            col.enabled = true;
         }
         else if (SpriteDebug != null) SpriteDebug.transform.position = newPosition;
     }

@@ -29,7 +29,7 @@ public class Blinded_Enemy : EnemyAI
 
     void UpdateCircleRange()
     {
-        Debug.Log("viewDistanceVar = " + viewDistanceVar);
+        //Debug.Log("viewDistanceVar = " + viewDistanceVar);
 
         rangeCircle.localScale = new Vector3(viewDistanceVar * 2, viewDistanceVar * 2, 0);
     }

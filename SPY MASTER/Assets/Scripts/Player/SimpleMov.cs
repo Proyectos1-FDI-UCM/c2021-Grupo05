@@ -115,10 +115,8 @@ public class SimpleMov : MonoBehaviour
             numOfBullets--;
             bulletHud.HudLess(1);
 
-            //Se aplica aceleracion con ForceMode2D.Force, no con Impulse. No utilizamos masa, creo?
-
             AudioManager.GetInstance().Play("Silenced_shot");
-            ShotParticles.Play();
+            //ShotParticles.Play();
         }
 
         //Click Derecho // MEELE
@@ -130,7 +128,6 @@ public class SimpleMov : MonoBehaviour
             
             if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
             {
-                Debug.Log("EnemyDetected");
                 enemyInRange.GetComponent<EnemyAI>().Damage(false);
                 AudioManager.GetInstance().Play("Stab");
             }

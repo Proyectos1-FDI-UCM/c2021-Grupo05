@@ -254,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 7754815263839932520}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.21, y: -0, z: 0}
-  m_LocalScale: {x: 2.25, y: 2.25, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 7754815264534055128}
   m_RootOrder: 0
@@ -298,13 +298,13 @@ SpriteRenderer:
   m_SortingLayerID: 1711424411
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -921869311443062807, guid: 7dd1c04a1c7637c4bababde97be36dee,
+  m_Sprite: {fileID: -1731822256706024441, guid: 4d4efa29029a7234b959c04cfc8ce0a2,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8125, y: 1.25}
+  m_Size: {x: 1.2403101, y: 1.2403101}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -517,7 +517,6 @@ MonoBehaviour:
   gun: {fileID: 7754815263474292302}
   shootPoint: {fileID: 7754815263839777437}
   rangeCircle: {fileID: 7754815264579822729}
-  floatgfxX: 0
 --- !u!58 &7754815264534055133
 CircleCollider2D:
   m_ObjectHideFlags: 0
