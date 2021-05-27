@@ -140,3 +140,15 @@ MonoBehaviour:
     pitch: 1.11
     loop: 0
     source: {fileID: 0}
+  - name: MainMenuMusic
+    clip: {fileID: 8300000, guid: 398a548bb3e88b64983c35a7f3cbd8bc, type: 3}
+    volume: 0.608
+    pitch: 1.11
+    loop: 1
+    source: {fileID: 0}
+  - name: Gameplay
+    clip: {fileID: 8300000, guid: 7ff92e2816dcf644c9505a0de2eee8bf, type: 3}
+    volume: 0.304
+    pitch: 1.11
+    loop: 1
+    source: {fileID: 0}

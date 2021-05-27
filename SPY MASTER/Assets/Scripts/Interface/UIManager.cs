@@ -11,10 +11,18 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     Button pause;
-    // Start is called before the first frame update
+
     void Start()
     {
         GameManager.GetInstance().SetUiManager(this);
+
+
+        if (SceneManager.GetActiveScene().name == "MenuPrincipal")
+            AudioManager.GetInstance().Play("MainMenuMusic");
+
+        if (SceneManager.GetActiveScene().name == "Level_1")
+            AudioManager.GetInstance().Play("Gameplay");
+
     }
     private void Update()
     {
@@ -22,14 +30,15 @@ public class UIManager : MonoBehaviour
         {
             //falta añadir la otra escena
             if(SceneManager.GetActiveScene().name == "Level_1")
-            
                 pause.onClick.Invoke();
-          
         }
     }
 
     public void CambiaEscena(string scene)
     {
+        AudioManager.GetInstance().Stop("MainMenuMusic");
+        AudioManager.GetInstance().Stop("Gameplay");
+
         Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
@@ -40,6 +49,7 @@ public class UIManager : MonoBehaviour
 
     public void Exit()
     {
+        Debug.Log("Exit");
         Application.Quit();
     }
 
@@ -51,5 +61,8 @@ public class UIManager : MonoBehaviour
         Time.timeScale = a;
     }
 
-
+    public void ClickSound()
+    {
+        AudioManager.GetInstance().Play("Stab");
+    }
 }
