@@ -68,11 +68,11 @@ public class BlinkScript : MonoBehaviour
             //Tiempo e invulnerabilidad
             col.enabled = false;
             anim.Play("Player_Blink");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
             rb.position = newPosition;
             blinkCharge -= 1;
             AudioManager.GetInstance().Play("Blink");
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
             col.enabled = true;
         }
         else if (SpriteDebug != null) SpriteDebug.transform.position = newPosition;
