@@ -155,7 +155,6 @@ public class SimpleMov : MonoBehaviour
         moveDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveDir.Normalize();
         body.velocity = moveDir * runSpeed;
-        
     }
 
     public void GetAmmo()
