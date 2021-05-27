@@ -14,14 +14,16 @@ public class TimerPanel : MonoBehaviour
     Timer timer;
     void Start()
     {
+        
         timer = Timer.GetInstance();
 
-        if (iniTime) timer.changeIni(Time.time);
+        if (timer != null && iniTime) timer.changeIni(Time.time);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(timer != null)
         timer.actPanel(text);
     }
 
