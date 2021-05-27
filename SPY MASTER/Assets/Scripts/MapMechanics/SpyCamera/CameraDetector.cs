@@ -107,10 +107,14 @@ public class CameraDetector : MonoBehaviour
             if (Vector2.Distance(transform.position, thisEnemy.transform.position) < alertRange)
             {
                 // Buff enemies
-                thisEnemy.ChangeStats(10, 90, thisEnemy.alertedSpeed);
+                if(thisEnemy != null)
+                {
+                    thisEnemy.ChangeStats(10, 90, thisEnemy.alertedSpeed);
 
-                thisEnemy.gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
-                thisEnemy.gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola
+                    thisEnemy.gfx.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite
+                    thisEnemy.gun.GetComponentInChildren<SpriteRenderer>().color = Color.yellow; // Cambiar color del sprite de la pistola
+                }
+                
             }
         }
     }

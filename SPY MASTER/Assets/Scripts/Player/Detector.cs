@@ -45,17 +45,24 @@ public class Detector : MonoBehaviour
 
     private void Update() 
     {
-        canvasAlpha.alpha = enemInRange.Count > 0? 1 : 0;   
-        if(enemInRange.Count > 0)     
+        if(canvasAlpha != null)
         {
-            meleeCanvas.SetParent(GetNearestEnemy(), false);
+
+            canvasAlpha.alpha = enemInRange.Count > 0 ? 1 : 0;
+            if (enemInRange.Count > 0)
+            {
+                meleeCanvas.SetParent(GetNearestEnemy(), false);
+            }
+            //Al morir los enemigos desactivan collider y esperan un lapso de animacion de muerte.
+            //Detach el canvas en ese momento para no ser eliminado con los enemigos (va a ver que cambiar esto si o si /con eventos?)
+            else
+            {
+                meleeCanvas.SetParent(null, false);
+            }
+
+
         }
-        //Al morir los enemigos desactivan collider y esperan un lapso de animacion de muerte.
-        //Detach el canvas en ese momento para no ser eliminado con los enemigos (va a ver que cambiar esto si o si /con eventos?)
-        else
-        {
-            meleeCanvas.SetParent(null, false);
-        }
+        
     }
 
     public Transform GetNearestEnemy()
