@@ -29,6 +29,7 @@ public class SimpleMov : MonoBehaviour
     [SerializeField]
     private Detector enemDetector;
     private Transform aimPoint;
+    [SerializeField]
     private Animator gfxAnim;
     private Transform playerSpr;
 
@@ -56,7 +57,6 @@ public class SimpleMov : MonoBehaviour
         //References (LIMPIAR)
         playerSpr = transform.GetChild(0).transform;
         aimPoint = HandPivot.GetChild(0).GetChild(0).GetChild(0).transform;
-        gfxAnim = GetComponentInChildren<Animator>();
 
         // Health
         health = maxHealth;

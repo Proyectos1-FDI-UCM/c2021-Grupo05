@@ -17,4 +17,12 @@ public class VideoEnd : MonoBehaviour
         yield return new WaitForSeconds((float)length);
         SceneManager.LoadScene (sceneBuildIndex: sceneToChange);
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene (sceneBuildIndex: sceneToChange);
+        }
+    }
 }
