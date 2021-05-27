@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1113,6 +1113,7 @@ GameObject:
   - component: {fileID: 571139589}
   - component: {fileID: 571139588}
   - component: {fileID: 571139590}
+  - component: {fileID: 571139591}
   m_Layer: 5
   m_Name: "Texto Men\xFA"
   m_TagString: Untagged
@@ -1192,6 +1193,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9380b61db314770419c0977378888d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &571139591
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571139586}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22d6b40574cd75a41b1b538f26c49de6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &608103465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,7 +2327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03529412, g: 0.1764706, b: 0.25882354, a: 1}
+  m_Color: {r: 0.57155573, g: 0.6634034, b: 0.7169812, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
