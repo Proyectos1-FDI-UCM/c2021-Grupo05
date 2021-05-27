@@ -15,6 +15,8 @@ public class FinishLevel : MonoBehaviour
         {
             SceneManager.LoadScene(sceneBuildIndex: sceneToChange);
             Debug.Log("trigger");
+
+            Timer.GetInstance().SaveTime();
         }
     }
 }
