@@ -28,13 +28,5 @@ public class TimerPanel : MonoBehaviour
     }
 
     //para prueba de guardado
-    public void SaveTime()
-    {
-        timer.SaveTime();
-    }
-
-    public void ShowTime()
-    {
-        timer.DebugTimes();
-    }
+  
 }
