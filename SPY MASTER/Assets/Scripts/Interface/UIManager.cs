@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             //falta añadir la otra escena
-            if(SceneManager.GetActiveScene().name == "MergeScene")
+            if(SceneManager.GetActiveScene().name == "Level_1")
             
                 pause.onClick.Invoke();
           
