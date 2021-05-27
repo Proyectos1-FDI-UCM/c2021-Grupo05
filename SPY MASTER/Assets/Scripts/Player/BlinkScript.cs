@@ -63,7 +63,7 @@ public class BlinkScript : MonoBehaviour
 
         Vector2 newPosition = transform.position + mouseDirection * blinkDistance;
 
-        if (blinkCharge - 1 >= 0 && !Physics2D.OverlapCircle(newPosition, transform.localScale.x / 2, LayerMask.GetMask("Wall")))
+        if (blinkCharge - 1 >= 0 && !Physics2D.OverlapCircle(newPosition, transform.localScale.x / 3, LayerMask.GetMask("Wall")))
         {
             //Tiempo e invulnerabilidad
             col.enabled = false;

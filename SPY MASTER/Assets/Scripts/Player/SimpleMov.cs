@@ -128,7 +128,7 @@ public class SimpleMov : MonoBehaviour
 
             Transform enemyInRange = enemDetector.GetNearestEnemy();
             
-            if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 2) //Variable en un futuro
+            if (enemyInRange != null && Vector3.Distance(transform.position, enemyInRange.position) < 3) //Variable en un futuro
             {
                 enemyInRange.GetComponent<EnemyAI>().Damage(false);
                 AudioManager.GetInstance().Play("Stab");
