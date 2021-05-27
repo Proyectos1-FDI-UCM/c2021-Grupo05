@@ -37,6 +37,12 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = valor;
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
     public void ChangeTime()
     {
         int a;
