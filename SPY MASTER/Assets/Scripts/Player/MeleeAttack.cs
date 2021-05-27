@@ -40,7 +40,6 @@ public class MeleeAttack : MonoBehaviour
         EnemyAI enemy = collision.gameObject.GetComponent<EnemyAI>();
           if(enemy != null && enemy.IsFollowPlayer())
         {
-            Debug.Log("EnemyImpacted");
             if (col.enabled) DesactiveCol();
             //falta el método daño a enemigo
         }
